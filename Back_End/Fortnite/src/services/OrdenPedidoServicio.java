@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import bean.Aea;
+import bean.CompraPavosPersonalizado;
 import bean.Item;
 import bean.OrdenPedido;
 import negocio.ItemNegocio;
@@ -31,7 +31,7 @@ public class OrdenPedidoServicio {
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("compraPavos2")
-	public int CompraPavos2(Aea op){
+	public int CompraPavos2(CompraPavosPersonalizado op){
 		int ok=0;
 		ok =  ordenPedidoNegocio.comprarPavos2(op);
 		System.out.println("en el servicio  :" + ok);

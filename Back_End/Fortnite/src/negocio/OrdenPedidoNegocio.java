@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import Util.MySQLConexion;
-import bean.Aea;
+import bean.CompraPavosPersonalizado;
 import bean.Item;
 import bean.OrdenPedido;
 import bean.OrdenPedidoDetalle;
@@ -109,7 +109,7 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 
 	// Boton comprar 
 	@Override
-	public Integer comprarPavos2(Aea op) {
+	public Integer comprarPavos2(CompraPavosPersonalizado op) {
 		// TODO Auto-generated method stub
 		int OK = 0;
 		int OKA=0;	

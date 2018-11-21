@@ -1,6 +1,6 @@
 package bean;
 
-public class Aea { // Clase Personaliza para la Compra
+public class CompraPavosPersonalizado { // Clase Personaliza para la Compra
 	
 	private int idPedido;
 	/** Fecha del Pedido */
