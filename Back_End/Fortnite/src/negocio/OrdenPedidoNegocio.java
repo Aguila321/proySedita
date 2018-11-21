@@ -3,12 +3,14 @@ package negocio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import Util.MySQLConexion;
+import bean.Aea;
 import bean.Item;
 import bean.OrdenPedido;
 import bean.OrdenPedidoDetalle;
@@ -30,7 +32,7 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 			con.setAutoCommit(false);
 			String sql = "insert into orden_pedido values (?,now(),?);";
 			
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		
 			
 			pst = con.prepareStatement(sql);
 			
@@ -39,27 +41,29 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 			pst.setInt(2, op.getUsuario().getIduser());
 			OK = pst.executeUpdate();
 			System.out.println("primer execute " + OK);
-			if(OK==1) {
-				PreparedStatement pst2 = null;
+			PreparedStatement pst2 = null;
+			List<OrdenPedidoDetalle> opd = new ArrayList<>();
+			for (OrdenPedidoDetalle  i : opd) {
 				
-				OrdenPedidoDetalle opd = new OrdenPedidoDetalle();
 				String query ="call usp_compra_detalle(?,?,?,?)";
 				pst2 = con.prepareStatement(query);
 				pst2.setInt(1, id);
-				pst2.setInt(2,opd.getPavos().getIdpavos());
-				pst2.setInt(3,opd.getCantidad());
-				pst2.setDouble(4,opd.getPrecio());
+				pst2.setInt(2,i.getPavos().getIdpavos());
 				
-				OKA = pst.executeUpdate();
+				pst2.setInt(3,i.getCantidad());
+				pst2.setDouble(4,i.getPrecio());
+				
+				OKA = pst2.executeUpdate();
 				
 				System.out.println("segundo execute :"  +OKA);
 				if(OKA==1) {
-					con.commit();
+					System.out.println("executa 2");
 				}else {
-					con.rollback();
+					
 				}
-			}
-			
+			} 
+			con.commit();
+	
 			
 		} catch (Exception e) {
 			System.out.println("Error en la sentencia  " + e.getMessage());
@@ -101,6 +105,72 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 			MySQLConexion.closeConexion(con);
 		}
 		return generado;
+	}
+
+	// Boton comprar 
+	@Override
+	public Integer comprarPavos2(Aea op) {
+		// TODO Auto-generated method stub
+		int OK = 0;
+		int OKA=0;	
+			Connection con = null;
+			PreparedStatement pst = null;
+			
+			try {
+				int id = AutoGenerado();
+				
+				con = MySQLConexion.getConexion();
+				con.setAutoCommit(false);
+				String sql = "insert into orden_pedido values (?,now(),?);";
+				
+			
+				
+				pst = con.prepareStatement(sql);
+			
+				pst.setInt(1, id);
+				//pst.setString(2,sdf.format(new Date()));
+				pst.setInt(2, op.getUsuario().getIduser());
+				OK = pst.executeUpdate();
+				System.out.println("primer execute " + OK);
+				PreparedStatement pst2 = null;
+				
+				//OrdenPedidoDetalle opd = new OrdenPedidoDetalle();
+				if(OK==1) {
+					
+					
+					String query ="call usp_compra_detalle(?,?,?,?)";
+					pst2 = con.prepareStatement(query);
+					pst2.setInt(1,id); 
+					pst2.setInt(2,op.getPedidoDetalle().getPavos().getIdpavos());
+					pst2.setInt(3,op.getPedidoDetalle().getCantidad());
+					pst2.setDouble(4,op.getPedidoDetalle().getPrecio());
+					
+					OKA = pst2.executeUpdate();
+					
+					System.out.println("segundo execute :"  +OKA);
+					if(OKA==1) {
+						System.out.println("Ejecutado OKA");
+					}else {
+						System.out.println("No Ejecutado");
+					}
+				}
+				con.commit();
+		
+				
+			} catch (Exception e) {
+				System.out.println("Error en la sentencia  " + e.getMessage());
+				try {
+					con.rollback();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			} finally {
+				MySQLConexion.closeStatement(pst);
+				MySQLConexion.closeConexion(con);
+			}
+			return OKA;
 	}
 	
 	
