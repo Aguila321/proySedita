@@ -10,8 +10,6 @@ public class CompraPavosPersonalizado { // Clase Personaliza para la Compra
 	
 	private OrdenPedidoDetalle pedidoDetalle;
 	
-	
-	
 	public int getIdPedido() {
 		return idPedido;
 	}

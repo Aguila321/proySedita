@@ -29,9 +29,7 @@ public class ItemNegocio  implements ItemInterface{
 		ResultSet rs = null;
 		Connection con = null;
 		PreparedStatement pst = null;
-		
-		
-		
+			
 		try {
 			con = MySQLConexion.getConexion();
 			String sql = "select * from item";

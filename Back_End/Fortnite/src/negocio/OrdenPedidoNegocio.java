@@ -1,4 +1,4 @@
-package negocio;
+ 	package negocio;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

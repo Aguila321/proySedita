@@ -1,5 +1,6 @@
 package interfaces;
 
+import bean.Item;
 import bean.OrdenPedido;
 import bean.Pais;
 import bean.Pavos;
@@ -15,4 +16,7 @@ public interface ObtenerInterface {
 	public TipoUsuario obtenerTipoUsuario(int id);
 	public Pavos obtenerPavos(int id);
 	public OrdenPedido obtenerPedido(int id);
+	public Item  obtenerItem(int id);
+	public TipoItem obtenerTipoItem(int id);
+	public RarezaItem obtenerRarezaItem (int id);
 }

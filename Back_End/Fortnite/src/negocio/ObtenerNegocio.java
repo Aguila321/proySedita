@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 
 import Util.MySQLConexion;
+import bean.Item;
 import bean.OrdenPedido;
 import bean.Pais;
 import bean.Pavos;
@@ -16,6 +17,7 @@ import bean.Usuario;
 import interfaces.ObtenerInterface;
 
 public class ObtenerNegocio implements ObtenerInterface{
+
 	@Override
 	public Usuario obtenerUsuario(int idUser) {
 		ResultSet rs = null;
@@ -43,7 +45,6 @@ public class ObtenerNegocio implements ObtenerInterface{
 			MySQLConexion.closeStatement(pst);
 			MySQLConexion.closeConexion(con);
 		}
-
 		return u;
 	}
 
@@ -60,12 +61,11 @@ public class ObtenerNegocio implements ObtenerInterface{
 			pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);
-			;
+			
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
 				tipoUsuario = new TipoUsuario(rs.getInt(1), rs.getString(2));
-
 			}
 
 		} catch (Exception e) {
@@ -74,7 +74,6 @@ public class ObtenerNegocio implements ObtenerInterface{
 			MySQLConexion.closeStatement(pst);
 			MySQLConexion.closeConexion(con);
 		}
-
 		return tipoUsuario;
 	}
 
@@ -91,7 +90,7 @@ public class ObtenerNegocio implements ObtenerInterface{
 			pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);
-			;
+			
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
@@ -109,38 +108,6 @@ public class ObtenerNegocio implements ObtenerInterface{
 		return pais;
 	}
 
-	@Override
-	public Pavos obtenerPavos(int id) {
-		// TODO Auto-generated method stub
-		ResultSet rs = null;
-		Connection con = null;
-		PreparedStatement pst = null;
-		Pavos pavos = null;
-
-		try {
-			con = MySQLConexion.getConexion();
-			String sql = "select * from pavos where idpavo = ?";
-			pst = con.prepareStatement(sql);
-
-			pst.setInt(1, id);
-			;
-			rs = pst.executeQuery();
-
-			while (rs.next()) {
-				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
-
-			}
-
-		} catch (Exception e) {
-			System.out.println("error en el obtener pavos");
-			e.printStackTrace();
-		} finally {
-			MySQLConexion.closeStatement(pst);
-			MySQLConexion.closeConexion(con);
-		}
-
-		return pavos;
-	}
 
 	@Override
 	public OrdenPedido obtenerPedido(int id) {
@@ -179,4 +146,121 @@ public class ObtenerNegocio implements ObtenerInterface{
 
 		return ordenPedido;
 	}
+
+	@Override
+	public Pavos obtenerPavos(int id) {
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		Pavos pavos = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from pavos where idpavos = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+		return pavos;
+	}
+
+	@Override
+	public Item obtenerItem(int id) {
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		Item item = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from item where iditem = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			;
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				item = new Item(rs.getInt(1), rs.getString(2), rs.getInt(3),
+						obtenerTipoItem(rs.getInt(4)), obtenerRarezaItem(rs.getInt(5)));
+}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		return item;
+	}
+
+	@Override
+	public TipoItem obtenerTipoItem(int id) {
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		TipoItem tipoItem = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from tipo where idtipo = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				tipoItem = new TipoItem(rs.getInt(1), rs.getString(2));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		return tipoItem;
+	}
+
+	@Override
+	public RarezaItem obtenerRarezaItem(int id) {
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		RarezaItem rarezaItem = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from pais where idpais = ?";
+			pst = con.prepareStatement(sql);
+
+			pst.setInt(1, id);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				rarezaItem = new RarezaItem(rs.getInt(1), rs.getString(2));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+		return rarezaItem;
+	}	
 }
