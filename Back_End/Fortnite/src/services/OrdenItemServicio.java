@@ -18,6 +18,7 @@ OrdenItemNegocio ordeItemNegocio = new OrdenItemNegocio();
 public int CompraItem(CompraItemPersonalizado cpi){
 	int ok=0;
 	ok =  ordeItemNegocio.compraItem(cpi);
+	ok +=2;
 	System.out.println("en el servicio  :" + ok);
 	return ok;
 }

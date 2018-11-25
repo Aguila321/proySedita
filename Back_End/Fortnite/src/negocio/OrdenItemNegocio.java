@@ -47,7 +47,7 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 					
 					System.out.println("segundo execute :"  +OKA);
 				
-					if(OKA==1) {
+					if(OKA==-1) {
 						System.out.println("Ejecutado OKA");
 					}else {
 						System.out.println("No Ejecutado");

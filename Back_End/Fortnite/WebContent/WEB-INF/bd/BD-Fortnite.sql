@@ -316,7 +316,7 @@
 	delimiter ;
 	
 	DELIMITER $$
-Create PROCEDURE usp_compra_item1 (p_idcompra int, p_iditem int, p_precio decimal(18,0))
+create PROCEDURE usp_compra_item1 (p_idcompra int, p_iditem int, p_precio decimal(18,0))
 Begin
 	Declare v_pavos int;
 	set v_pavos = (select pavos from usuario as u join orden_item oi on oi.idusuario = u.iduser where oi.idcompra=p_idcompra);
@@ -325,6 +325,7 @@ Begin
     then select 'No Corresponde al precio' as mensaje;
     else
 	insert into  tb_orden_item_detalle  values(p_idcompra,p_iditem,p_precio); 
+    Insert into Inventario values ((Select oi.idusuario from orden_item oi where oi.idcompra=p_idcompra),p_iditem);
 	select 'Los datos son correctos' as mensaje;
 
     Update orden_item as oi 
