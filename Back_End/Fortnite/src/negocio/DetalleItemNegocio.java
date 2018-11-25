@@ -29,7 +29,7 @@ public class DetalleItemNegocio implements DetalleItemIterface{
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				OrdenItemDetalle o = new OrdenItemDetalle(rs.getInt(1),obtener.obtenerItem(rs.getInt(2)), rs.getInt(3));
+				OrdenItemDetalle o = new OrdenItemDetalle(obtener, item, precio)
 				lista.add(o);
 			}
 

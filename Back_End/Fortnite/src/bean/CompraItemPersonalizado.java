@@ -5,13 +5,6 @@ private int idItem ;
 private Usuario usuario ;
 private OrdenItemDetalle itemDetalle;
 
-public CompraItemPersonalizado(int idItem, Usuario usuario, OrdenItemDetalle itemDetalle) {
-	super();
-	this.idItem = idItem;
-	this.usuario = usuario;
-	this.itemDetalle = itemDetalle;
-}
-
 public int getIdItem() {
 	return idItem;
 }

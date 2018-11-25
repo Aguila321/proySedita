@@ -7,8 +7,8 @@ public class CompraPavosPersonalizado { // Clase Personaliza para la Compra
 	private String fechaPedido;
 	/** Usuario que realizo el pedido */
 	private Usuario usuario ;
-	
 	private OrdenPedidoDetalle pedidoDetalle;
+	
 	
 	public int getIdPedido() {
 		return idPedido;
@@ -34,8 +34,5 @@ public class CompraPavosPersonalizado { // Clase Personaliza para la Compra
 	public void setPedidoDetalle(OrdenPedidoDetalle pedidoDetalle) {
 		this.pedidoDetalle = pedidoDetalle;
 	}
-	
-	
-	
 
 }

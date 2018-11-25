@@ -10,6 +10,7 @@ public class OrdenItem {
 	// ATRIBUTOS
 	private int idCompra ;
 	private Usuario usuario;
+	
 	// CONSTRUCTOR
 	public OrdenItem(int idCompra, Usuario usuario) {
 		super();
@@ -29,6 +30,10 @@ public class OrdenItem {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public OrdenItem() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 }
