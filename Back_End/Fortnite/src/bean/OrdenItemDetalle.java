@@ -1,16 +1,11 @@
 package bean;
 
 public class OrdenItemDetalle {
-private int idCompra ;
+	private OrdenItem ordeItem;
 private Item item;
 private int precio;
 
-public int getIdCompra() {
-	return idCompra;
-}
-public void setIdCompra(int idCompra) {
-	this.idCompra = idCompra;
-}
+
 public Item getItem() {
 	return item;
 }
@@ -23,13 +18,19 @@ public int getPrecio() {
 public void setPrecio(int precio) {
 	this.precio = precio;
 }
-
-public OrdenItemDetalle(int idCompra, Item item, int precio) {
-	super();
-	this.idCompra = idCompra;
+public OrdenItem getOrdeItem() {
+	return ordeItem;
+}
+public void setOrdeItem(OrdenItem ordeItem) {
+	this.ordeItem = ordeItem;
+}
+public OrdenItemDetalle(OrdenItem ordeItem, Item item, int precio) {
+	this.ordeItem = ordeItem;
 	this.item = item;
 	this.precio = precio;
 }
+
+
 
 
 }
