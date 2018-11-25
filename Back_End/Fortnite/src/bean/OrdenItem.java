@@ -11,17 +11,22 @@ public class OrdenItem {
 	private int idCompra ;
 	private Usuario usuario;
 	
+
 	// CONSTRUCTOR
+	public OrdenItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public OrdenItem(int idCompra, Usuario usuario) {
 		super();
 		this.idCompra = idCompra;
 		this.usuario = usuario;
 	}
 	// GET - SET
+
 	public int getIdCompra() {
 		return idCompra;
 	}
-
 	public void setIdCompra(int idCompra) {
 		this.idCompra = idCompra;
 	}
@@ -31,9 +36,6 @@ public class OrdenItem {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public OrdenItem() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	
 }

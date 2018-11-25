@@ -40,7 +40,7 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 					String query ="call usp_compra_item1(?,?,?)";
 					pst2 = con.prepareStatement(query);
 					pst2.setInt(1,id); 
-					pst2.setInt(2,cpi.getItemDetalle().getItem().getIditem());
+					pst2.setInt(2,cpi.getItemDetalle().getItem().getIdItem());
 					pst2.setDouble(3,cpi.getItemDetalle().getPrecio());
 					
 					OKA = pst2.executeUpdate();

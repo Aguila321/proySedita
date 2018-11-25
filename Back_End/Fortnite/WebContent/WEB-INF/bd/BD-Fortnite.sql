@@ -356,7 +356,7 @@ End;
 	end;
 	delimiter ;
 	
-	delimiter //
+	DELIMITER $$
 	create procedure autogenerar_item()
 	begin
 	  select count(*)

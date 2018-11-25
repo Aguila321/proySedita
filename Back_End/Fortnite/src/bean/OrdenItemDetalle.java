@@ -6,6 +6,14 @@ private OrdenItem ordeItem;
 private Item item;
 private double precio;
 
+public OrdenItemDetalle() {
+}
+public OrdenItemDetalle(OrdenItem ordeItem, Item item, int precio) {
+	this.ordeItem = ordeItem;
+	this.item = item;
+	this.precio = precio;
+}
+
 
 public Item getItem() {
 	return item;
@@ -25,15 +33,6 @@ public OrdenItem getOrdeItem() {
 public void setOrdeItem(OrdenItem ordeItem) {
 	this.ordeItem = ordeItem;
 }
-public OrdenItemDetalle(OrdenItem ordeItem, Item item, int precio) {
-	this.ordeItem = ordeItem;
-	this.item = item;
-	this.precio = precio;
-}
-public OrdenItemDetalle() {
-}
-
-
 
 
 }
