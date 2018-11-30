@@ -10,22 +10,29 @@ import { HttpClientModule } from '@angular/common/http';
 
 //servicio
 import { ServicioUsuarioService } from './servicio/servicio-usuario.service';
-
-
+import { AppRoutingModule } from 'src/app-routing.module';
+import { HeaderComponent } from './componente/header/header.component';
+import { ListItemComponent } from './componente/list-item/list-item.component';
+import { ItemService } from './servicio/item/item.service';
+import { ItemDetailComponent } from './componente/item-detail/item-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    RegistrarUsuarioComponent
+    RegistrarUsuarioComponent,
+    HeaderComponent,
+    ListItemComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [ServicioUsuarioService],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
