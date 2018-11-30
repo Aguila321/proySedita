@@ -1,4 +1,22 @@
-<div *ngIf="item">
-  <h1>{{item.idItem}}</h1>
-  <p>{{item.nombreItem}}</p>
-</div>
+<div class="container">
+
+  <!-- Left Column / Headphones Image -->
+  <div class="left-column">
+    <img src="https://image.fnbr.co/outfit/5ab1633ec3a23b438035947d/png.png" alt="">
+  </div>
+
+
+  <!-- Right Column -->
+  <div class="right-column" *ngFor="let obj of item">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>{{obj.tipoItem.descripcion}}</span>
+      <h1>{{obj.nombreItem}}</h1>
+      <p>{{obj.rarezaItem.descripcion}}</p>
+    </div>
+
+    <div class="product-price">
+      <span>{{obj.precioItem}}</span>
+    </div>
+  </div>
