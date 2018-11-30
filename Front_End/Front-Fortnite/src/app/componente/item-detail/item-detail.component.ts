@@ -20,11 +20,11 @@ export class ItemDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(parameters =>{
       this.id = parameters["id"];
       
-      /*this.service.getItemById(this.id).subscribe(data=>{
+      this.service.getItemById(this.id).subscribe(data=>{
         this.item = data;
-        console.log(this.id);
-      })*/
-    })
+        console.log(this.item);
+      });
+    });
   }
 
 }
