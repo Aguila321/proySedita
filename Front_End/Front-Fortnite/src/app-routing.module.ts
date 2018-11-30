@@ -18,6 +18,9 @@ const routes: Routes = [
   {
     path: 'item-detail/:id',
     component: ItemDetailComponent
+  },
+  {
+    path: '**', pathMatch:'full', redirectTo:'lista-item'
   }
 ];
 
