@@ -3,7 +3,7 @@ package negocio;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 
 import Util.MySQLConexion;
 import bean.Item;
@@ -111,14 +111,13 @@ public class ObtenerNegocio implements ObtenerInterface{
 
 	@Override
 	public OrdenPedido obtenerPedido(int id) {
-		// TODO Auto-generated method stub
 		ResultSet rs = null;
 		Connection con = null;
 		PreparedStatement pst = null;
 		OrdenPedido ordenPedido = null;
 		
 		/*Dar formato la fecha*/
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+		//SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
 		
 
 		try {

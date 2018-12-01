@@ -8,7 +8,6 @@ import java.util.List;
 
 import Util.MySQLConexion;
 import bean.Pavos;
-import bean.Pavos;
 import interfaces.PavosInterface;
 
 public class PavosNegocio implements PavosInterface{

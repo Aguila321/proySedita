@@ -1,12 +1,7 @@
 package negocio;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
-import Util.MySQLConexion;
 import bean.OrdenItemDetalle;
 import interfaces.DetalleItemIterface;
 
@@ -14,7 +9,6 @@ public class DetalleItemNegocio implements DetalleItemIterface{
 
 	@Override
 	public List<OrdenItemDetalle> ItemPedidos() {
-//		// TODO Auto-generated method stub
 //		ObtenerNegocio obtener = new ObtenerNegocio();
 //		List<OrdenItemDetalle> lista = new ArrayList<OrdenItemDetalle>();
 //		ResultSet rs = null;

@@ -1,7 +1,6 @@
 package interfaces;
 import java.util.List;
 
-import bean.Pais;
 import bean.Usuario;
 
 public interface UsuarioInterface {

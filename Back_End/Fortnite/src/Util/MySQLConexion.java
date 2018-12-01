@@ -28,7 +28,6 @@ public class MySQLConexion {
 		try {
 			con.close();//Sentencia para cerrar la conexión
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Problemas al cerrar la conexion");
 		}
 	}
@@ -38,7 +37,6 @@ public class MySQLConexion {
 		try {
 			stmt.close();// sentencia para cerrar el statement
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			System.out.println("Problemas al cerrar el statement");
 		}
 	}

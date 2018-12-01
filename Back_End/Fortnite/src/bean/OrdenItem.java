@@ -15,7 +15,6 @@ public class OrdenItem {
 	// CONSTRUCTOR
 	public OrdenItem() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public OrdenItem(int idCompra, Usuario usuario) {
 		super();

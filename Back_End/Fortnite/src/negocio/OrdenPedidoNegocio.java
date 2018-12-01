@@ -4,14 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import Util.MySQLConexion;
 import bean.CompraPavosPersonalizado;
-import bean.Item;
 import bean.OrdenPedido;
 import bean.OrdenPedidoDetalle;
 import interfaces.OrdenPedidoInteface;
@@ -20,7 +17,6 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 
 	@Override
 	public Integer comprarPavos(OrdenPedido op) {
-		// TODO Auto-generated method stub
 	int OK = 0;
 	int OKA=0;	
 		Connection con = null;
@@ -78,7 +74,6 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 
 	@Override
 	public int AutoGenerado() {
-		// TODO Auto-generated method stub
 		int generado =0;
 		ResultSet rs = null;
 		Connection con = null;
@@ -110,7 +105,6 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 	// Boton comprar 
 	@Override
 	public Integer comprarPavos2(CompraPavosPersonalizado op) {
-		// TODO Auto-generated method stub
 		int OK = 0;
 		int OKA=0;	
 			Connection con = null;
@@ -162,7 +156,6 @@ public class OrdenPedidoNegocio implements OrdenPedidoInteface{
 				try {
 					con.rollback();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				

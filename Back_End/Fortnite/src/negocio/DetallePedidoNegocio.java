@@ -2,21 +2,17 @@ package negocio;
 
 import java.util.List;
 
-import bean.Inventario;
 import bean.OrdenPedidoDetalle;
 import interfaces.DetallePedidoInterface;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import Util.MySQLConexion;
-import bean.Usuario;
 public class DetallePedidoNegocio  implements DetallePedidoInterface{
 
 	@Override
 	public List<OrdenPedidoDetalle> UsuariosPedidos() {
-		// TODO Auto-generated method stub
 		ObtenerNegocio obtener = new ObtenerNegocio();
 		List<OrdenPedidoDetalle> lista = new ArrayList<OrdenPedidoDetalle>();
 		ResultSet rs = null;

@@ -13,7 +13,6 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 
 	@Override
 	public Integer compraItem(CompraItemPersonalizado cpi) {
-		// TODO Auto-generated method stub
 		int OK = 0;
 		int OKA=0;	
 			Connection con = null;
@@ -60,7 +59,6 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 				try {
 					con.rollback();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}			
 			} 
@@ -73,7 +71,6 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 
 	@Override
 	public int AutoGenerado() {
-		// TODO Auto-generated method stub
 		int generado =0;
 		ResultSet rs = null;
 		Connection con = null;

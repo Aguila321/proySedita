@@ -8,7 +8,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import bean.Inventario;
-import bean.Item;
 import negocio.InventarioNegocio;
 
 /**

@@ -2,14 +2,9 @@ package negocio;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 import java.sql.PreparedStatement;
 
@@ -18,8 +13,6 @@ import bean.Item;
 import bean.RarezaItem;
 import bean.TipoItem;
 import interfaces.ItemInterface;
-import sun.security.krb5.internal.crypto.RsaMd5CksumType;
-
 
 public class ItemNegocio  implements ItemInterface{
 
@@ -85,7 +78,6 @@ public class ItemNegocio  implements ItemInterface{
 
 	@Override
 	public RarezaItem obtenerRareza(int id) {
-		// TODO Auto-generated method stub
 		ResultSet rs = null;
 		Connection con = null;
 		PreparedStatement pst = null;
