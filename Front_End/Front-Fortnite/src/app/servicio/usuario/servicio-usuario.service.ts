@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Usuario } from '../model/usuario.interface';
+import { Usuario } from '../../model/usuario.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
 
@@ -10,12 +10,12 @@ import { map } from 'rxjs/operators'
 })
 export class ServicioUsuarioService {
 
-  usuario : Usuario;
+  usuario : Usuario ;
 
   /* URL GENERAL*/ 
   urlGeneral ="http://localhost:8080/Fortnite/rest/proyecto/";
   urlRegister = this.urlGeneral +"regUsuario"
-  
+  urlLogin = this.urlGeneral+"loginUsuario";
   constructor(private http:HttpClient) { }
 
   registrarUsuario(usuario : Usuario) : Observable<any>{
@@ -25,5 +25,12 @@ export class ServicioUsuarioService {
     });
     console.log(this.urlRegister);
     return this.http.post(this.urlRegister,body,{headers:headers});
+  }
+  loginUsuario(usuario):Observable<any>{
+    let body = JSON.stringify(usuario);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.urlLogin,body,{headers:headers});
   }
 }

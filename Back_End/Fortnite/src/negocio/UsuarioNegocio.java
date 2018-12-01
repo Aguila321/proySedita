@@ -70,4 +70,39 @@ public class UsuarioNegocio implements UsuarioInterface{
 		}
 		return OK;
 	}
+	@Override
+	public Usuario loginUsuario(String user,String pass) {
+		// TODO Auto-generated method stub
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		Usuario u = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "select * from usuario where username = ? and clave=?";
+			pst = con.prepareStatement(sql);
+			pst.setString(1,user);
+			pst.setString(2, pass);
+			
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				u = new Usuario();
+				u.setApellido(rs.getString(2));
+				u.setNombre(rs.getString(1));
+				u.setFecnac(rs.getString(5));
+				//u.setPavos(rs.getInt(7));
+			
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+		return u;
+	}
 }

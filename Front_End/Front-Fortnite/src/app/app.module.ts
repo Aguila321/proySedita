@@ -9,12 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //servicio
-import { ServicioUsuarioService } from './servicio/servicio-usuario.service';
+import { ServicioUsuarioService } from './servicio/usuario/servicio-usuario.service';
 import { AppRoutingModule } from 'src/app-routing.module';
 import { HeaderComponent } from './componente/header/header.component';
 import { ListItemComponent } from './componente/list-item/list-item.component';
 import { ItemService } from './servicio/item/item.service';
 import { ItemDetailComponent } from './componente/item-detail/item-detail.component';
+import { ListPavoComponent } from './componente/list-pavo/list-pavo.component';
+import { PavoDetailComponent } from './componente/pavo-detail/pavo-detail.component';
+import { PavoService } from './servicio/pavos/pavo.service';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { ItemDetailComponent } from './componente/item-detail/item-detail.compon
     RegistrarUsuarioComponent,
     HeaderComponent,
     ListItemComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ListPavoComponent,
+    PavoDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { ItemDetailComponent } from './componente/item-detail/item-detail.compon
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ItemService],
+  providers: [ItemService,PavoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
