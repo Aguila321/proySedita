@@ -5,13 +5,10 @@ import { ListItemComponent } from './app/componente/list-item/list-item.componen
 import { ItemDetailComponent } from './app/componente/item-detail/item-detail.component';
 import { ListPavoComponent } from './app/componente/list-pavo/list-pavo.component';
 import { UsuarioComponent } from './app/componente/usuario/usuario.component';
-import { PrincipalComponent } from './app/componente/principal/principal.component';
 
 
 
 const routes: Routes = [
-  
-  {path:'home',component:PrincipalComponent},
   { path:'login', component: UsuarioComponent},
   {
     path: 'lista-pavo',

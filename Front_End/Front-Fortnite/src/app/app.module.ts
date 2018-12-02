@@ -18,8 +18,6 @@ import { ItemDetailComponent } from './componente/item-detail/item-detail.compon
 import { ListPavoComponent } from './componente/list-pavo/list-pavo.component';
 import { PavoDetailComponent } from './componente/pavo-detail/pavo-detail.component';
 import { PavoService } from './servicio/pavos/pavo.service';
-import { PrincipalComponent } from './componente/principal/principal.component';
-import { FooterComponent } from './componente/footer/footer.component';
 
 
 
@@ -34,8 +32,6 @@ import { FooterComponent } from './componente/footer/footer.component';
     ItemDetailComponent,
     ListPavoComponent,
     PavoDetailComponent,
-    PrincipalComponent,
-    FooterComponent,
   
    
   ],
