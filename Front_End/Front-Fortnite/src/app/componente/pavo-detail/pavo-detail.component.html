@@ -1,3 +1,38 @@
-<p>
-  pavo-detail works!
-</p>
+<form class="needs-validation" (ngSubmit)="registrarCompraPavos(forma)" #forma="ngForm">
+  <H1>{{inputId}}</H1>
+  <div class="col-md-4 mb-3">
+      <label for="validationCustom02">ID USER </label>
+      <input type="text" class="form-control" [(ngModel)]="comprapavo.usuario.iduser" placeholder="Last name"
+        name="iduser" required>
+      <div class="valid-feedback">
+      </div>
+    </div>
+  <div class="col-md-4 mb-3">
+    <label for="validationCustom02">ID PAVO </label>
+    <input type="text" class="form-control" [(ngModel)]="comprapavo.pedidoDetalle.pavos.idpavos" placeholder="Last name"
+      name="idpavos" required>
+    <div class="valid-feedback">
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="validationCustom02">CANTIDAD </label>
+    <input type="text" class="form-control" [(ngModel)]="comprapavo.pedidoDetalle.cantidad" placeholder="Last name"
+      name="cantidad" required>
+    <div class="valid-feedback">
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <label for="validationCustomUsername">PRECIO PAVO</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupPrepend">@</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="comprapavo.pedidoDetalle.precio" name="precio" placeholder="Username"
+        aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Registrar Compra</button>
+</form>

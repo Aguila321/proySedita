@@ -1,7 +1,7 @@
 export class CompraPavoPersonalizado{
     usuario?:{
 
-		iduser?:number;
+		iduser?:Number;
 	}
 	pedidoDetalle?:{
 

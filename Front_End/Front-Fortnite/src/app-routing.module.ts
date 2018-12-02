@@ -5,6 +5,7 @@ import { ListItemComponent } from './app/componente/list-item/list-item.componen
 import { ItemDetailComponent } from './app/componente/item-detail/item-detail.component';
 import { ListPavoComponent } from './app/componente/list-pavo/list-pavo.component';
 import { UsuarioComponent } from './app/componente/usuario/usuario.component';
+import { PavoDetailComponent} from './app/componente/pavo-detail/pavo-detail.component'
 
 
 
@@ -26,10 +27,13 @@ const routes: Routes = [
     path: 'item-detail/:id',
     component: ItemDetailComponent
    },
+   {
+    path: 'pavo-detail/:id',
+    component: PavoDetailComponent
+   },
   {
     path: '**', pathMatch:'full', redirectTo:'lista-item'
-  }
-
+  },
 ];
 
 @NgModule({

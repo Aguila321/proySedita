@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PavoService } from '../../servicio/pavos/pavo.service';
 import { Pavo } from '../../model/pavo.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-pavo',
@@ -9,7 +10,8 @@ import { Pavo } from '../../model/pavo.model';
 })
 export class ListPavoComponent implements OnInit {
   pavos : Pavo[];
-  constructor(private servicio: PavoService) {
+  pavo : Pavo;
+  constructor(private servicio: PavoService, private route : Router) {
     this.servicio.getPavos().subscribe( data=>{
       this.pavos= data
       console.log(this.pavos);
@@ -19,5 +21,11 @@ export class ListPavoComponent implements OnInit {
   ngOnInit() {
   }
 
+  filterPavo(id : number){
+    this.servicio.getPavobyId(id).subscribe(data=>{
+        this.pavo = data;
+        this.route.navigate(['/pavo-detail', id]);
+    })
+  }
 
 }

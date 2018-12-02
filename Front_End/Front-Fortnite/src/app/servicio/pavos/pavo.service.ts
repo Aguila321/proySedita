@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Pavo } from '../../model/pavo.model';
 import { map } from 'rxjs/operators'
-import { Observable } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs';
 import { CompraPavoPersonalizado } from '../../model/comprapavo.model';
 
 @Injectable({
@@ -15,6 +15,7 @@ export class PavoService {
   urlListPavo :string =this.urlGeneral +"pavos"
   urlGetPavo :string=this.urlGeneral+"";
   urlCompraPavo : string =this.urlGeneral+"compraPavos2";
+  urlFilter = this.urlGeneral + "PavosFil?idPavos=";
   constructor(private http : HttpClient) { }
 
   getPavos(): Observable<Pavo[]>{
@@ -34,5 +35,16 @@ export class PavoService {
 
   }
 
-  
+  private messageSource = new BehaviorSubject(new Number);
+  currentMessage = this.messageSource.asObservable();
+
+  getPavobyId(id : number){
+    return this.http.get<Pavo>(this.urlFilter + id).pipe();
+  }
+
+  changeMessage(message:Number){
+    this.messageSource.next(message);
+    console.log("en el change message :" + message)
+  }
+ 
 }

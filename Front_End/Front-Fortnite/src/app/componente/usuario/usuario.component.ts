@@ -4,6 +4,7 @@ import { Usuario } from '../../model/usuario.interface';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ItemService } from '../../servicio/item/item.service';
+import { PavoService } from 'src/app/servicio/pavos/pavo.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class UsuarioComponent implements OnInit {
     apellido:''
   };
   constructor(private servicio:ServicioUsuarioService,private  router: Router,
-            private servicioItem:ItemService) {
+            private servicioItem:ItemService, private servicioPavo : PavoService) {
    
    }
 
@@ -42,6 +43,7 @@ export class UsuarioComponent implements OnInit {
             this.servicio.changeMessage(this.ape);
         
             this.servicioItem.changeMessage(this.idUsu);
+            this.servicioPavo.changeMessage(this.idUsu);
             console.log(this.ape);
             console.log('en el servicio login   ' +this.idUsu);
             

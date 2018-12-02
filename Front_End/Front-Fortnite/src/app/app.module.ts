@@ -21,7 +21,6 @@ import { PavoService } from './servicio/pavos/pavo.service';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
