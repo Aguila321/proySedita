@@ -39,6 +39,7 @@ public class UsuarioNegocio implements UsuarioInterface{
 	}
 	@Override
 	public int RegistrarUsuario(Usuario u) {
+		// TODO Auto-generated method stub
 		int OK = 0;
 		
 		Connection con = null;
@@ -71,6 +72,7 @@ public class UsuarioNegocio implements UsuarioInterface{
 	}
 	@Override
 	public Usuario loginUsuario(String user,String pass) {
+		// TODO Auto-generated method stub
 		ResultSet rs = null;
 		Connection con = null;
 		PreparedStatement pst = null;
@@ -88,15 +90,16 @@ public class UsuarioNegocio implements UsuarioInterface{
 
 			while (rs.next()) {
 				u = new Usuario();
-				u.setIduser(rs.getInt(0));
-				u.setNombre(rs.getString(1));
-				u.setApellido(rs.getString(2));
-				u.setUsername(rs.getString(3));
-				u.setClave(rs.getString(4));
-				u.setFecnac(rs.getString(5));
-				u.setEmail(rs.getString(6));
-				u.setPavos(rs.getInt(7));
+				u.setIduser(rs.getInt(1));
+				u.setNombre(rs.getString(2));
+				u.setApellido(rs.getString(3));
 				
+				u.setFecnac(rs.getString(6));
+				u.setEmail(rs.getString(7));
+				u.setPavos(rs.getInt(8));
+				u.setPais((obtener.obtenerPais(rs.getInt(9))));
+				u.setTipo((obtener.obtenerTipoUsuario(rs.getInt(10))));
+				//u.setPavos(rs.getInt(7));
 			
 			}
 
