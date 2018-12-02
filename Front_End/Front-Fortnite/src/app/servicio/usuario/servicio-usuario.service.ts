@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../../model/usuario.interface';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 
 
@@ -16,7 +16,16 @@ export class ServicioUsuarioService {
   urlGeneral ="http://localhost:8080/Fortnite/rest/proyecto/";
   urlRegister = this.urlGeneral +"regUsuario"
   urlLogin = this.urlGeneral+"loginUsuario";
+
+  private messageSource = new BehaviorSubject('');
+  currentMessage = this.messageSource.asObservable();
+
   constructor(private http:HttpClient) { }
+
+changeMessage(message:string){
+  this.messageSource.next(message);
+  console.log("en el change message :" + message)
+}
 
   registrarUsuario(usuario : Usuario) : Observable<any>{
     let body = JSON.stringify(usuario);

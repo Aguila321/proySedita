@@ -20,6 +20,8 @@ import { PavoDetailComponent } from './componente/pavo-detail/pavo-detail.compon
 import { PavoService } from './servicio/pavos/pavo.service';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { PavoService } from './servicio/pavos/pavo.service';
     ListItemComponent,
     ItemDetailComponent,
     ListPavoComponent,
-    PavoDetailComponent
+    PavoDetailComponent,
+  
+   
   ],
   imports: [
     BrowserModule,

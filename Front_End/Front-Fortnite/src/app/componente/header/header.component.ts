@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Usuario } from '../../model/usuario.interface';
+import { UsuarioComponent } from '../../componente/usuario/usuario.component';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,11 @@ import { Usuario } from '../../model/usuario.interface';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() usuario :Usuario={
-    apellido:''
-  };
+  
   
   
   constructor() {
-    console.log(this.usuario);
+    
    }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 export class item{
-    idItem? : number;
+    idItem? : Number;
     nombreItem?: string;
     precioItem?: number;
     tipoItem : {

@@ -1,4 +1,5 @@
 export interface Usuario{
+    iduser?:Number,
     nombre?: string,
     apellido?: string,
     username?: string,

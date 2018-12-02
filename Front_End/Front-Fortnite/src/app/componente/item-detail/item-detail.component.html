@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container m-5">
 
-  <!-- Left Column / Headphones Image -->
+  
   <div class="left-column">
     <img src="https://image.fnbr.co/outfit/5ab1633ec3a23b438035947d/png.png" alt="">
   </div>
 
 
-  <!-- Right Column -->
+
   <div class="right-column" *ngFor="let obj of item">
 
-    <!-- Product Description -->
+     Product Description 
     <div class="product-description">
       <span>{{obj.tipoItem.descripcion}}</span>
       <h1>{{obj.nombreItem}}</h1>
@@ -19,4 +19,73 @@
     <div class="product-price">
       <span>{{obj.precioItem}}</span>
     </div>
+     <div class="input-form">
+      <input type="text" name="idUsuario" value="{{inputId}}"/>
+    </div> 
+    
   </div>
+  </div> -->
+  <!-- PARA LA COMPRA -->
+  <!-- usuario?:{
+		iduser?:number;	
+		
+	}
+	itemDetalle?:{
+		item?:{
+			idItem?:number;
+		}
+		precio?:number;
+	
+		
+  }
+-->
+  <H1>{{inputId}}</H1>
+  <!-- <input  value="{{inputId}}" /> -->
+  <form class="needs-validation" (ngSubmit)="registrarCompraItem(forma)" #forma="ngForm"  >
+    <div style="display: none;" class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom01">ID USUARIO</label>
+        <input type="text" class="form-control"
+        name="iduser"
+      
+   
+        [(ngModel)]="compra.usuario.iduser"
+        required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom02">ID ITEM </label>
+        <input type="text" class="form-control"
+        [(ngModel)]="compra.itemDetalle.item.idItem"
+          placeholder="Last name" 
+          name="idItem"
+          required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustomUsername">PRECIO ITEM</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="text" class="form-control" 
+          [(ngModel)]="compra.itemDetalle.precio"
+          name="precio"
+           placeholder="Username" 
+           aria-describedby="inputGroupPrepend"
+            required>
+          <div class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <button class="btn btn-primary" type="submit">Registrar Compra ></button>
+  </form>
+  
