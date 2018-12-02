@@ -19,7 +19,7 @@ export class RegistrarUsuarioComponent implements OnInit {
     email: '',
   
     pais: {
-        idpais: 0
+        idpais:0
      
     }
     }

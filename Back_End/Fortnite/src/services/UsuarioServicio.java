@@ -33,27 +33,22 @@ public class UsuarioServicio  implements ContainerResponseFilter{
 	
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("regUsuario")
-	public Response registrarUsuario (Usuario u) {
+	public String registrarUsuario (Usuario u) {
 //		Response.ok().header("Access-Control-Allow-Origin", "*")
 //		.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
 //		.allow("OPTIONS").build();
-//		String mensaje="";
-//		int ok = usuarioNegocio.RegistrarUsuario(u);
-//		if(ok==1) {
-//			mensaje="Registrado Correctamente!!";
-//			
-//		}else {
-//			mensaje="Tu madre es una bitch";
-//		}
-//		
-//		return mensaje;
-		
+		String mensaje="";
 		int ok = usuarioNegocio.RegistrarUsuario(u);
-		return Response.ok() //200
-				.entity(ok)
-				.header("Access-Control-Allow-Origin", "*")
-				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-				.allow("OPTIONS").build();
+		if(ok==1) {
+			mensaje="Registrado Correctamente!!";
+			
+		}else {
+			mensaje="Tu madre es una bitch";
+		}
+		
+		return mensaje;
+		
+	
 		
 	}
 	

@@ -1,41 +1,39 @@
-
 <!-- <app-item-detail [parentData]="ape"></app-item-detail> -->
 
- <div class="container">
-<form class="needs-validation" (ngSubmit)="login(forma)" #forma="ngForm"  >
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend">@</span>
-        </div>
-        <input type="text" class="form-control" 
-        [(ngModel)]="usuario.username"
-        name="username"
-         placeholder="Username" 
-         aria-describedby="inputGroupPrepend"
-          required>
-        <div class="invalid-feedback">
-          Please choose a username.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">Clave</label>
-      <input type="text" class="form-control" 
-      [(ngModel)]="usuario.clave"
-      name="clave"
-      placeholder="" 
-      required>
-      <div class="invalid-feedback">
-        Please provide a valid city.
-      </div>
-    </div>
-  </div>
+<div class="container md-5 " style="width: 100%;">
+  <div class="aea border border-secondary rounded">
+    <h1 class="h1"><strong>Login Usuario</strong></h1>
+    <div style="margin: 2%;">
+      <form (ngSubmit)="login(forma)" #forma="ngForm">
+        <div class="input-group mb-2 ">
 
-  <button class="btn btn-primary" type="submit">Login</button>
-</form>
+
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="usuario.username" name="username" placeholder="Ingrese su Usuario"
+            aria-describedby="inputGroupPrepend" required>
+
+        </div>
+        <div class="input-group mb-2 ">
+
+
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="usuario.clave" name="clave" placeholder="Ingrese su Contraseña"
+            aria-describedby="inputGroupPrepend" required>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ingresar <i class="fas fa-angle-double-right 9x"></i>
+        
+        </button>
+        <hr>
+        <div class="">
+        <a  [routerLink]="['/registrar']" class="badge badge-secondary" style="font-size: 16px;">Aun no estas registrado?</a>
+      </div>
+      </form>
+    </div>
+  </div>
 </div>
