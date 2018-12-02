@@ -13,7 +13,7 @@ public class MySQLConexion {
 		Class.forName("com.mysql.jdbc.Driver"); //instanciamiento de la clase del driver
 		String url= "jdbc:mysql://localhost:3306/fornai";//variable String que contiene los datos del servidor
 		String usr= "root";//variable String que contiene el dato del usuario
-		String psw= "aguila123";//variable String que contiene el dato del password
+		String psw= "mysql";//variable String que contiene el dato del password
 		con = DriverManager.getConnection(url,usr,psw);// con este método se establece la conexión con el servidor
 		} catch(ClassNotFoundException e) {
 		System.out.println("Error >> Driver no Instalado!!");
