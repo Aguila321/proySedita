@@ -31,42 +31,44 @@
 	
 	CREATE Table pavos
     (
-		idpavo INT PRIMARY KEY,
+		idpavo      INT PRIMARY KEY,
 		descripcion VARCHAR(50),
-		cantidad INT,
-		precio DECIMAL(15,4)
+		cantidad    INT,
+		precio      DECIMAL(15,4),
+        url         VARCHAR(3999)
 	);
 	
 	CREATE Table orden_pedido
     (
-		idpedido INT PRIMARY KEY  ,
+		idpedido    INT PRIMARY KEY  ,
 		fechapedido DATE,
-		idusuario INT REFERENCES usuario
+		idusuario   INT REFERENCES usuario
     );
 	
 	CREATE Table tb_orden_pedido_detalle
     (
 		idpedido INT REFERENCES orden_pedido,
-		idpavo INT REFERENCES pavos,
+		idpavo   INT REFERENCES pavos,
 		cantidad INT,
-		precio DECIMAL(18,0)
+		precio   DECIMAL(18,0)
     );
 	
 	CREATE Table tipo
     (
-		idtipo INT NOT NULL PRIMARY KEY,
+		idtipo  INT NOT NULL PRIMARY KEY,
 		destipo VARCHAR(50)
 	);
 	
 	CREATE Table rarity
     (
-		idrarity INT PRIMARY KEY,
-		descripcion VARCHAR(80)
+		idrarity    INT PRIMARY KEY,
+		descripcion VARCHAR(80),
+        url         VARCHAR(3999)
 	);
 		
 	CREATE Table item
     (
-		iditem INT AUTO_INCREMENT PRIMARY KEY,
+		iditem     INT AUTO_INCREMENT PRIMARY KEY,
 		nombreItem VARCHAR(255),
 		precio     INT,
 		idtipo     INT REFERENCES tipo,
@@ -77,20 +79,20 @@
 	
 	CREATE Table orden_item
     (
-		idcompra INT PRIMARY KEY,
+		idcompra  INT PRIMARY KEY,
 		idusuario INT REFERENCES usuario
     );
 	
 	CREATE Table tb_orden_item_detalle 
     (
 		idcompra INT REFERENCES orden_item,
-		iditem INT REFERENCES item ,
-		precio INT 
+		iditem   INT REFERENCES item ,
+		precio   INT 
     );
 	
 	CREATE table inventario
     (
 		idusuario INT REFERENCES usuario,
-		iditem INT REFERENCES item
+		iditem    INT REFERENCES item
     );
 	    

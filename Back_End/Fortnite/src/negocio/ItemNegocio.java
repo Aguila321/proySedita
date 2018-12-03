@@ -93,7 +93,7 @@ public class ItemNegocio  implements ItemInterface{
 			rs = pst.executeQuery();
 			
 			while(rs.next()){
-				r = new RarezaItem(rs.getInt(1), rs.getString(2));	
+				r = new RarezaItem(rs.getInt(1), rs.getString(2),rs.getString(3));	
 				
 			}
 			

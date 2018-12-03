@@ -163,7 +163,7 @@ public class ObtenerNegocio implements ObtenerInterface{
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4),rs.getString(5));
 			}
 
 		} catch (Exception e) {
@@ -245,14 +245,14 @@ public class ObtenerNegocio implements ObtenerInterface{
 
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "select * from pais where idpais = ?";
+			String sql = "select * from rarity where idrarity = ?";
 			pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				rarezaItem = new RarezaItem(rs.getInt(1), rs.getString(2));
+				rarezaItem = new RarezaItem(rs.getInt(1), rs.getString(2),rs.getString(3));
 			}
 
 		} catch (Exception e) {

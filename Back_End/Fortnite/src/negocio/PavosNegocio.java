@@ -27,7 +27,7 @@ public class PavosNegocio implements PavosInterface{
 			rs = pst.executeQuery();
 			
 			while(rs.next()){
-				Pavos i = new Pavos(rs.getInt(1),rs.getString(2), rs.getInt(3),rs.getDouble(4));
+				Pavos i = new Pavos(rs.getInt(1),rs.getString(2), rs.getInt(3),rs.getDouble(4),rs.getString(5));
 				
 				lista.add(i);
 			}

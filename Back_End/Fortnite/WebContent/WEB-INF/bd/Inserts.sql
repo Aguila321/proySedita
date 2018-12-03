@@ -17,10 +17,10 @@
 	INSERT INTO Pais VALUES(6,'Chile');
 	INSERT INTO Pais VALUES(7,'Ecuador');
     
-    INSERT INTO pavos VALUES(1, '1000 v-Bucks', 1000, 9.99);
-	INSERT INTO pavos VALUES(2, '2500 v-Bucks',2500, 24.99);
-	INSERT INTO pavos VALUES(3, '6000 v-Bucks',6000, 59.99);
-	INSERT INTO pavos VALUES(4, '10000 v-Bucks',10000, 99.99);
+    INSERT INTO pavos VALUES(1, '1000 v-Bucks', 1000, 9.99,'https://vignette.wikia.nocookie.net/fortnite/images/5/5a/Icon_VBucks.png/revision/latest?cb=20170806013747');
+	INSERT INTO pavos VALUES(2, '2500 v-Bucks',2500, 24.99,'https://vignette.wikia.nocookie.net/fortnite/images/5/5a/Icon_VBucks.png/revision/latest?cb=20170806013747');
+	INSERT INTO pavos VALUES(3, '6000 v-Bucks',6000, 59.99,'https://vignette.wikia.nocookie.net/fortnite/images/5/5a/Icon_VBucks.png/revision/latest?cb=20170806013747');
+	INSERT INTO pavos VALUES(4, '10000 v-Bucks',10000, 99.99,'https://vignette.wikia.nocookie.net/fortnite/images/5/5a/Icon_VBucks.png/revision/latest?cb=20170806013747');
 	
 	INSERT INTO tipo VALUES(1, 'Outfit');
 	INSERT INTO tipo VALUES(2, 'Back Bling');
@@ -28,10 +28,10 @@
 	INSERT INTO tipo VALUES(4, 'Pickaxe');
 	INSERT INTO tipo VALUES(5, 'Emote');
 	
-	INSERT INTO rarity VALUES(1, 'Legendary');
-	INSERT INTO rarity VALUES(2, 'Epic');
-	INSERT INTO rarity VALUES(3, 'Rare');
-	INSERT INTO rarity VALUES(4, 'Uncommon');
+	INSERT INTO rarity VALUES(1, 'Legendary','https://i.ibb.co/ncD40Xr/1.png');
+	INSERT INTO rarity VALUES(2, 'Epic','https://i.ibb.co/9bpFk9z/2.png');
+	INSERT INTO rarity VALUES(3, 'Rare','https://i.ibb.co/FW3sSjC/3.png');
+	INSERT INTO rarity VALUES(4, 'Uncommon','https://i.ibb.co/F8HN5pB/4.png');
 	 
 	INSERT INTO item VALUES(NULL,'Cuddle Team Leader', 2000, 1, 1,'https://image.fnbr.co/outfit/5ab15721e9847b3170da0326/png.png','https://image.fnbr.co/outfit/5ab15721e9847b3170da0326/icon.png');
 	

@@ -97,7 +97,7 @@ public class InventarioNegocio implements InventarioInterface {
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				rareza = new RarezaItem(rs.getInt(1), rs.getString(2));
+				rareza = new RarezaItem(rs.getInt(1), rs.getString(2),rs.getString(3));
 
 			}
 
@@ -221,7 +221,7 @@ public class InventarioNegocio implements InventarioInterface {
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+				pavos = new Pavos(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4),rs.getString(5));
 
 			}
 

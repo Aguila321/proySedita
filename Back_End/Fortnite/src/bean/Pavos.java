@@ -17,6 +17,8 @@ public class Pavos {
 	private String descripcion;
 	/** Precio de los Pavos */
 	private double precio;
+	/** Imagen */
+	private String url;
 	
 	// CONSTRUCTOR
 	
@@ -33,12 +35,13 @@ public class Pavos {
 	 * @param cantidad
 	 * @param precio
 	 */
-	public Pavos(int idpavos, String descripcion, int cantidad, double precio) {
+	public Pavos(int idpavos, String descripcion, int cantidad, double precio, String url) {
 		super();
 		this.idpavos = idpavos;
 		this.descripcion = descripcion;
 		this.cantidad = cantidad;
 		this.precio = precio;
+		this.url = url;
 	}
 	
 	// GET - SET
@@ -98,6 +101,20 @@ public class Pavos {
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	/**
+	 * Metodo que obtiene la Imagen de Pavos
+	 * @return url imagen de pavos , tipo {@link String}
+	 */
+	public String getUrl() {
+		return url;
+	}
+	/**
+	 * Metodo que envia la Imagen de Pavos
+	 * @param url imagen de pavos , tipo {@link String}
+	 */
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	

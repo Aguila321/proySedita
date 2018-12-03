@@ -13,6 +13,8 @@ public class RarezaItem {
 	private int idrareaza;
 	/** Descripcion de la Rareza */
 	private String descripcion;
+	/** Color */
+	private String color;
 
 	// CONSTRUCTOR
 	
@@ -27,10 +29,11 @@ public class RarezaItem {
 	 * @param idrareaza
 	 * @param descripcion
 	 */
-	public RarezaItem(int idrareaza, String descripcion) {
+	public RarezaItem(int idrareaza, String descripcion, String color) {
 		super();
 		this.idrareaza = idrareaza;
 		this.descripcion = descripcion;
+		this.color = color;
 	}
 	
 	// GET - SET
@@ -62,6 +65,20 @@ public class RarezaItem {
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	/**
+	 * Metodo que obtiene el Color de la Rareza
+	 * @return color color de la rareza, tipo {@link String}
+	 */
+	public String getColor() {
+		return color;
+	}
+	/**
+	 * Metodo que envia el Color de la Rareza
+	 * @param color color de la rareza, tipo {@link String}
+	 */
+	public void setColor(String color) {
+		this.color = color;
 	}
 	 
 	
