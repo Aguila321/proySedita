@@ -6,10 +6,13 @@ import { ItemDetailComponent } from './app/componente/item-detail/item-detail.co
 import { ListPavoComponent } from './app/componente/list-pavo/list-pavo.component';
 import { UsuarioComponent } from './app/componente/usuario/usuario.component';
 import { PavoDetailComponent} from './app/componente/pavo-detail/pavo-detail.component'
+import { PrincipalComponent } from './app/componente/principal/principal.component';
+
 
 
 
 const routes: Routes = [
+  {path:'home', component: PrincipalComponent},
   { path:'login', component: UsuarioComponent},
   {
     path: 'lista-pavo',
