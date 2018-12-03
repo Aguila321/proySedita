@@ -11,17 +11,18 @@
  
   <form class="needs-validation" (ngSubmit)="registrarCompraItem(forma)" #forma="ngForm" >
       <input type="text" class="form-control"
-      name="iduser"
       [(ngModel)]="compra.usuario.iduser"
+      name="iduser"
+
       value="{{inputId}}"
       required>
     <div class="product-description">
       <span>{{obj.tipoItem.descripcion}}</span>
       <input type="text" class="form-control"
         [(ngModel)]="compra.itemDetalle.item.idItem"
-        placeholder="Last name" 
-        name="idItem"
-        value="{{id}}"
+        placeholder="Id item" 
+        name="iditem"
+        value="{{obj.idItem}}"
         required>
       <h1>{{obj.nombreItem}}</h1>
       <p>{{obj.rarezaItem.descripcion}}</p>
@@ -32,7 +33,7 @@
       <input type="text" class="form-control"
       [(ngModel)]="compra.itemDetalle.precio"
       name="precioItem"
-      value={{obj.precioItem}}
+      value={{precio}}
       required>
     </div>
      <div class="input-form">

@@ -2,11 +2,11 @@ export class item{
     idItem? : Number;
     nombreItem?: string;
     precioItem?: number;
-    tipoItem : {
+    tipoItem? : {
         idTipoItem?:number;
         descripcion?:string;
     }
-    rarezaItem:{
+    rarezaItem?:{
         idrareaza?:number;
         descripcion?:string;
     }

@@ -19,10 +19,12 @@ export class ItemDetailComponent implements OnInit {
   inputId: Number =0;
   pavos : Number = 0;
   id : number;
+  precio : number=0;
   usuario : Usuario = {
     pavos: this.pavos
   };
   item : item;
+  
   compra : CompraItemPersonalizado ={
     usuario:{
       iduser:  this.inputId
@@ -32,27 +34,37 @@ export class ItemDetailComponent implements OnInit {
       item:{
         idItem: this.id,
       },
-       precio:0
+       precio:this.precio
 
     }
   };
   constructor(private service : ItemService,private route: Router,
      private activatedRoute: ActivatedRoute, private user_service : ServicioUsuarioService
      ) { 
+      this.activatedRoute.params.subscribe(parameters =>{
+        this.id = parameters["id"];
+        
+        this.service.getItemById(this.id).subscribe(data=>{
+       
+         this.item = data;
+         this.precio=this.item[0].precioItem;
+         // this.precio = data.precioItem;
+          console.log(this.item);
+          this.compra.itemDetalle.item.idItem = this.id;
+          
+          this.compra.itemDetalle.precio = this.precio;
+          console.log(this.compra.itemDetalle.precio);
+
+          
+          //this.compra.itemDetalle.item.idItem= Number(this.item.idItem);
+          //this.compra.itemDetalle.precio = this.item.precioItem;
      
+        });
+      });
    }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(parameters =>{
-      this.id = parameters["id"];
-      
-      this.service.getItemById(this.id).subscribe(data=>{
-        this.item = data;
-        this.compra.itemDetalle.item.idItem= Number(this.item.idItem);
-        this.compra.itemDetalle.precio = this.item.precioItem;
-        console.log(this.item);
-      });
-    });
+   
     this.service.currentMessage.subscribe(message =>
       this.inputId = message);
       
@@ -67,7 +79,7 @@ export class ItemDetailComponent implements OnInit {
     if(this.inputId==0){
       return this.route.navigate(['/login']);
     }
-    else if(this.pavos < this.item.precioItem){
+    else if(this.pavos < this.precio){
       return this.route.navigate(['/lista-pavo']);
     }
     else{

@@ -5,7 +5,7 @@ export class CompraItemPersonalizado{
 	}
 	itemDetalle?:{
 		item?:{
-			idItem?:number;
+			idItem?:Number;
 		}
 		precio?:number;
 	
