@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import bean.Inventario;
@@ -31,5 +32,17 @@ public class InventarioServicio {
 		System.out.println(listaInventario);
 		return listaInventario;
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("inventarioFil")
+	public Inventario inventarioXusuario(@QueryParam("idUsu1")int id) {
+Inventario inventario = new Inventario();	
+		
+		inventario = invNegocio.obtenerInvetario(id);
+		System.out.println(listaInventario);
+		return inventario;
+	}
+		
 
 }

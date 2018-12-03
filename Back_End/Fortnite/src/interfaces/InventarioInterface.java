@@ -27,5 +27,6 @@ public interface InventarioInterface {
 	public Pais obtenerPais(int id);
 	public TipoUsuario obtenerTipoUsuario(int id);
 	public Pavos obtenerPavos(int id);
+    public Inventario obtenerInvetario(int id);
 	
 }

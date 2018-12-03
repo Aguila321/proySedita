@@ -266,4 +266,33 @@ public class InventarioNegocio implements InventarioInterface {
 		return u;
 	}
 
+	@Override
+	public Inventario obtenerInvetario(int id) {
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+		Inventario iv = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "call Usp_InventarioXUsuario (?)";
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, id);
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				iv = new Inventario(obtenerUsuario(1), obtenerItem(2));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		return iv;
+	}
+
 }
