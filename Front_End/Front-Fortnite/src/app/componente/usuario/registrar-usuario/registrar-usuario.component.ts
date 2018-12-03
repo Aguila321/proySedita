@@ -2,6 +2,8 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ServicioUsuarioService } from '../../../servicio/usuario/servicio-usuario.service';
 import { Usuario } from '../../../model/usuario.interface';
 import { NgForm } from '@angular/forms';
+import { Pais } from 'src/app/model/pais.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-usuario',
@@ -10,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class RegistrarUsuarioComponent implements OnInit {
 
+  paises : Pais[];
   usuario:Usuario ={
     nombre:'',
     apellido:'',
@@ -23,15 +26,20 @@ export class RegistrarUsuarioComponent implements OnInit {
      
     }
     }
-  constructor(private servicio : ServicioUsuarioService) { }
+  constructor(private servicio : ServicioUsuarioService, private router : Router) { }
 
   ngOnInit() {
+    this.servicio.getAllCountries().subscribe(response=>{
+      this.paises = response;
+    })
   }
   registrarUsuario(forma : NgForm){
     this.servicio.registrarUsuario(this.usuario).subscribe( data=>{
-
+      this.usuario = data;
       console.log(this.usuario);
-        console.log(data);
+      console.log(data);
+      alert("Usuario Registrado!");
+      this.router.navigate(['/login']);
     },error => console.log(error));
   }
 

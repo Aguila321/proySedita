@@ -13,7 +13,7 @@ export class ItemService {
   url = "http://localhost:8080/Fortnite/rest/proyecto/";
   urlItem = this.url + "item";
   urlFilter = this.url + "itemFil?id=";
-  urlcompraItem = this.url+ "compraItem"
+  urlcompraItem = this.url+ "compraItem";
 
   private messageSource = new BehaviorSubject(new Number);
   currentMessage = this.messageSource.asObservable();
@@ -44,4 +44,5 @@ export class ItemService {
 
   }
 
+  
 }

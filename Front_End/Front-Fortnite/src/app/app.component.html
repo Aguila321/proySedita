@@ -14,10 +14,13 @@
           <a class="nav-link"[routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  [routerLink]="['/lista-pavo']">Pavo</a>
+          <a class="nav-link" [routerLink]="['/lista-pavo']">Pavo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/lista-item']">Item</a>
+        </li>
+        <li class="nav-item" *ngIf="aea==''">
+          <a class="nav-link" [routerLink]="['/registrar']">Registrar</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -27,13 +30,13 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" [routerLink]="['/add-article']">Add new article</a>
               <a class="dropdown-item" [routerLink]="['/about']">About</a>
-              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
       </ul>
-         <p style="color: wheat" *ngIf="!aea==''">El Nombre Usuario : {{aea}}</p>
-      
+       <span *ngIf="!aea==''" style="color:rgb(52, 139, 214);"><i class="fas fa-user"></i></span>
+       <span style="color: rgb(241, 241, 241); text-align: center; font-weight: bold; margin-right: 2%;" 
+        *ngIf="!aea==''">{{aea}}</span>
          <div *ngIf="aea==''">
           <button class="log" [routerLink]="['/login']">
             Login

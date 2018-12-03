@@ -10,3 +10,11 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+#basic-addon1{
+    font-size: 3px;
+}
+
+span{
+    margin-right: 1%;
+}

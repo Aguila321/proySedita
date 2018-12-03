@@ -43,7 +43,7 @@ public class UsuarioServicio  implements ContainerResponseFilter{
 			mensaje="Registrado Correctamente!!";
 			
 		}else {
-			mensaje="Tu madre es una bitch";
+			mensaje="No registrado!!";
 		}
 		
 		return mensaje;

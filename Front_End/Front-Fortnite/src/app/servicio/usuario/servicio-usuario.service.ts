@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../../model/usuario.interface';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
+import { Pais } from 'src/app/model/pais.model';
 
 
 @Injectable({
@@ -16,7 +17,8 @@ export class ServicioUsuarioService {
   urlGeneral = "http://localhost:8080/Fortnite/rest/proyecto/";
   urlRegister = this.urlGeneral + "regUsuario"
   urlLogin = this.urlGeneral + "loginUsuario";
-
+  urlPais = this.urlGeneral + "pais";
+  
   private messageSource = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
@@ -34,12 +36,8 @@ export class ServicioUsuarioService {
     this.messageSource2.next(pavos);
   }
   registrarUsuario(usuario: Usuario): Observable<any> {
-    let body = JSON.stringify(usuario);
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    console.log(this.urlRegister);
-    return this.http.post(this.urlRegister, body, { headers: headers });
+    //console.log(this.urlRegister);
+    return this.http.post(this.urlRegister, usuario);
   }
   loginUsuario(usuario): Observable<any> {
     let body = JSON.stringify(usuario);
@@ -47,5 +45,9 @@ export class ServicioUsuarioService {
       'Content-Type': 'application/json'
     });
     return this.http.post(this.urlLogin, body, { headers: headers });
+  }
+
+  getAllCountries():Observable<Pais[]>{
+    return this.http.get<Pais[]>(this.urlPais).pipe();
   }
 }
