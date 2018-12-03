@@ -57,7 +57,7 @@ export class PavoDetailComponent implements OnInit {
     return this.service.buyPav(this.comprapavo)
       .subscribe(data => {
         this.comprapavo = data;
-        this.route.navigate(['/lista-pavo']);
+        this.route.navigate(['lista-pavo/']);
       }, error => console.log(error));
 
   }

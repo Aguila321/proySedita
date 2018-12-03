@@ -34,5 +34,4 @@ export class ListItemComponent implements OnInit {
     })
   }
 
-   
 }

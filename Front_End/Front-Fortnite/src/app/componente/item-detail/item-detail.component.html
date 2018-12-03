@@ -5,45 +5,26 @@
     <img src="https://image.fnbr.co/outfit/5ab1633ec3a23b438035947d/png.png" alt="">
   </div>
 
+
+
   <div class="right-column" *ngFor="let obj of item">
 
-  Product Description 
- 
-  <form class="needs-validation" (ngSubmit)="registrarCompraItem(forma)" #forma="ngForm" >
-      <input type="text" class="form-control"
-      name="iduser"
-      [(ngModel)]="compra.usuario.iduser"
-      value="{{inputId}}"
-      required>
+     Product Description 
     <div class="product-description">
       <span>{{obj.tipoItem.descripcion}}</span>
-      <input type="text" class="form-control"
-        [(ngModel)]="compra.itemDetalle.item.idItem"
-        placeholder="Last name" 
-        name="idItem"
-        value="{{id}}"
-        required>
       <h1>{{obj.nombreItem}}</h1>
       <p>{{obj.rarezaItem.descripcion}}</p>
     </div>
 
     <div class="product-price">
       <span>{{obj.precioItem}}</span>
-      <input type="text" class="form-control"
-      [(ngModel)]="compra.itemDetalle.precio"
-      name="precioItem"
-      value={{obj.precioItem}}
-      required>
     </div>
      <div class="input-form">
-      <input type="hidden" name="idUsuario" value="{{inputId}}"/>
-      <input type="hidden" name="idItem" value="{{id}}"/>
+      <input type="text" name="idUsuario" value="{{inputId}}"/>
     </div> 
-
-    <button class="btn btn-primary" type="submit" style="margin-top:2%;">Registrar Compra</button>
-  </form>
+    
   </div>
-  </div> 
+  </div> -->
   <!-- PARA LA COMPRA -->
   <!-- usuario?:{
 		iduser?:number;	
@@ -58,8 +39,8 @@
 		
   }
 -->
-  <!--<H1>{{inputId}}</H1>
- <input  value="{{inputId}}" /> 
+  <H1>{{inputId}}</H1>
+  <!-- <input  value="{{inputId}}" /> -->
   <form class="needs-validation" (ngSubmit)="registrarCompraItem(forma)" #forma="ngForm"  >
     <div style="display: none;" class="form-row">
       <div class="col-md-4 mb-3">
@@ -76,7 +57,11 @@
       </div>
       <div class="col-md-4 mb-3">
         <label for="validationCustom02">ID ITEM </label>
-       
+        <input type="text" class="form-control"
+        [(ngModel)]="compra.itemDetalle.item.idItem"
+          placeholder="Last name" 
+          name="idItem"
+          required>
         <div class="valid-feedback">
           Looks good!
         </div>
@@ -101,6 +86,6 @@
     </div>
   
   
-    
-  </form>-->
+    <button class="btn btn-primary" type="submit">Registrar Compra ></button>
+  </form>
   
