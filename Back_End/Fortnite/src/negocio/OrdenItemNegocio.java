@@ -14,7 +14,7 @@ public class OrdenItemNegocio implements OrdenItemInterface{
 	@Override
 	public Integer compraItem(CompraItemPersonalizado cpi) {
 		int OK = 0;
-		int OKA=0;	
+		int OKA= 0;	
 			Connection con = null;
 			PreparedStatement pst = null;
 			

@@ -155,7 +155,7 @@ public class ObtenerNegocio implements ObtenerInterface{
 
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "select * from pavos where idpavos = ?";
+			String sql = "select * from pavos where idpavo = ?";
 			pst = con.prepareStatement(sql);
 
 			pst.setInt(1, id);

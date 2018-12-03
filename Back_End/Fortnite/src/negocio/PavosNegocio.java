@@ -41,5 +41,4 @@ public class PavosNegocio implements PavosInterface{
 		}
 		return lista;
 	}
-
 }
