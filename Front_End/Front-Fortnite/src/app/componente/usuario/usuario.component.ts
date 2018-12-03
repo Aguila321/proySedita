@@ -14,13 +14,11 @@ import { PavoService } from 'src/app/servicio/pavos/pavo.service';
 })
 export class UsuarioComponent implements OnInit {
    public ape : string;
-   public pavos : Number;
    public idUsu : Number;
    usuario : Usuario = {
     username:'',
     clave:'',
-    apellido:'',
-    pavos: 0
+    apellido:''
   };
   constructor(private servicio:ServicioUsuarioService,private  router: Router,
             private servicioItem:ItemService, private servicioPavo : PavoService) {
@@ -40,17 +38,14 @@ export class UsuarioComponent implements OnInit {
           }else{
            
             this.usuario = data;
-            this.ape= this.usuario.username;
+            this.ape= this.usuario.apellido;
             this.idUsu = this.usuario.iduser;
-            this.pavos = this.usuario.pavos;
             this.servicio.changeMessage(this.ape);
-            this.servicio.obtenerPavo(this.pavos);
         
             this.servicioItem.changeMessage(this.idUsu);
             this.servicioPavo.changeMessage(this.idUsu);
             console.log(this.ape);
-            console.log('en el servicio login   ' +this.idUsu + " pavos:" + this.pavos);
-            this.router.navigate(['/lista-item']);
+            console.log('en el servicio login   ' +this.idUsu);
             
           }
         
