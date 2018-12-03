@@ -70,12 +70,17 @@ export class PavoDetailComponent implements OnInit {
   }
 
   registrarCompraPavos(forma: NgForm) {
-    return this.service.buyPav(this.comprapavo)
+    if(this.inputId == 0){
+      return this.route.navigate(['/login']);
+    }else{
+      return this.service.buyPav(this.comprapavo)
       .subscribe(data => {
         this.comprapavo = data;
         alert("Compra Realizada ...")
         this.route.navigate(['/lista-pavo']);
       }, error => console.log(error));
+    }
+ 
 
   }
 

@@ -1,0 +1,8 @@
+<div class="container">
+  <div id="inventario" *ngFor="let inv of inven">
+    <div class="product-description">
+      <span>{{inv.nombreItem}}</span>
+    </div>
+    <img src="{{inv.urlDetail}}" alt="imginv">
+  </div>
+</div>

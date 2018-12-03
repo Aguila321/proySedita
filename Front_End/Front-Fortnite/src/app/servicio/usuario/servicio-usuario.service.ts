@@ -35,6 +35,13 @@ export class ServicioUsuarioService {
   obtenerPavo(pavos: Number) {
     this.messageSource2.next(pavos);
   }
+
+  private messageSource3 = new BehaviorSubject(new Number);
+  currentId = this.messageSource3.asObservable();
+  
+  obtenerId(id: Number) {
+    this.messageSource3.next(id);
+  }
   registrarUsuario(usuario: Usuario): Observable<any> {
     //console.log(this.urlRegister);
     return this.http.post(this.urlRegister, usuario);

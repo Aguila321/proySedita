@@ -34,7 +34,7 @@ public class InventarioNegocio implements InventarioInterface {
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				Inventario i = new Inventario(obtenerUsuario(rs.getInt(1)), obtenerItem(rs.getInt(2)));
+				Inventario i = new Inventario(rs.getInt(1), rs.getInt(2));
 				lista.add(i);
 			}
 
@@ -275,14 +275,22 @@ public class InventarioNegocio implements InventarioInterface {
 
 		try {
 			con = MySQLConexion.getConexion();
-			String sql = "call Usp_InventarioXUsuario (?)";
+			String sql = "call Usp_Inventario (?)";
 			pst = con.prepareStatement(sql);
 			pst.setInt(1, id);
 
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				iv = new Inventario(obtenerUsuario(1), obtenerItem(2));
+				iv = new Inventario();
+				iv.setUsuario(rs.getInt(1));
+				iv.setItem(rs.getInt(2));
+				iv.setNombreItem(rs.getString(3));
+				iv.setIdrarity(rs.getInt(4));
+				iv.setIdtipo(rs.getInt(5));
+				iv.setPrecio(rs.getInt(6));
+				iv.setUrlDetail(rs.getString(7));
+				iv.setUrlImg(rs.getString(8));
 			}
 
 		} catch (Exception e) {
@@ -293,6 +301,46 @@ public class InventarioNegocio implements InventarioInterface {
 		}
 
 		return iv;
+	}
+
+	@Override
+	public List<Inventario> iventarioUser(int id) {
+		List<Inventario> lista = new ArrayList<>();
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "call Usp_Inventario (?)";
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, id);
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				Inventario iv = new Inventario();
+				iv.setUsuario(rs.getInt(1));
+				iv.setItem(rs.getInt(2));
+				iv.setNombreItem(rs.getString(3));
+				iv.setIdrarity(rs.getInt(4));
+				iv.setIdtipo(rs.getInt(5));
+				iv.setPrecio(rs.getInt(6));
+				iv.setUrlDetail(rs.getString(7));
+				iv.setUrlImg(rs.getString(8));
+				
+				lista.add(iv);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+
+		
+		return lista;
 	}
 
 }

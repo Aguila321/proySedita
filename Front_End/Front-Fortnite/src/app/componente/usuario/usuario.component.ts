@@ -18,6 +18,7 @@ export class UsuarioComponent implements OnInit{
    public pavos : Number;
    public idUsu : Number;
    usuario : Usuario = {
+    iduser: 0,
     username:'',
     clave:'',
     apellido:'',
@@ -47,6 +48,7 @@ export class UsuarioComponent implements OnInit{
             this.pavos = this.usuario.pavos;
             this.servicio.changeMessage(this.ape);
             this.servicio.obtenerPavo(this.pavos);
+            this.servicio.obtenerId(this.idUsu);
         
             this.servicioItem.changeMessage(this.idUsu);
             this.servicioPavo.changeMessage(this.idUsu);

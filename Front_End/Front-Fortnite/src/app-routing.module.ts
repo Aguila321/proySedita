@@ -7,6 +7,7 @@ import { ListPavoComponent } from './app/componente/list-pavo/list-pavo.componen
 import { UsuarioComponent } from './app/componente/usuario/usuario.component';
 import { PavoDetailComponent} from './app/componente/pavo-detail/pavo-detail.component'
 import { PrincipalComponent } from './app/componente/principal/principal.component';
+import { InventarioComponent } from './app/componente/inventario/inventario.component';
 
 
 
@@ -40,6 +41,11 @@ const routes: Routes = [
    {
     path: 'pavo-detail/:id',
     component: PavoDetailComponent, 
+    runGuardsAndResolvers: 'always'
+   },
+   {
+    path: 'locker/:id',
+    component: InventarioComponent, 
     runGuardsAndResolvers: 'always'
    },
   {

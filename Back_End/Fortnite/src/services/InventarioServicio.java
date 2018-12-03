@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -36,13 +37,24 @@ public class InventarioServicio {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("inventarioFil")
-	public Inventario inventarioXusuario(@QueryParam("idUsu1")int id) {
-Inventario inventario = new Inventario();	
+	public Inventario inventarioXusuario(@QueryParam("idUsu")int id) {
+		Inventario inventario = new Inventario();	
 		
 		inventario = invNegocio.obtenerInvetario(id);
 		System.out.println(listaInventario);
 		return inventario;
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("locker")
+	public List<Inventario> userInventario(@QueryParam("iduser")int id) {
+		List<Inventario> lista = new ArrayList<>();
 		
-
+		lista = invNegocio.iventarioUser(id);
+		System.out.println(listaInventario);
+		return lista;
+	
+		
+	}
 }

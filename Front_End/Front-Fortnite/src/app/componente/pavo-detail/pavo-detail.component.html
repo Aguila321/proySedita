@@ -40,7 +40,7 @@
 
   
   <div class="left-column">
-    <img  alt="">
+    <img  alt="" src="{{pavo.url}}">
   </div>
 
   <div class="right-column">
@@ -48,34 +48,33 @@
 
  
   <form class="needs-validation" (ngSubmit)="registrarCompraPavos(forma)" #forma="ngForm" >
-      <input type="text" class="form-control"
+      <input type="hidden" class="form-control"
       [(ngModel)]="comprapavo.usuario.iduser"
       name="iduser"
       placeholder="id usuario"
       value="{{inputId}}"
       required>
     <div class="product-description">
-      <!-- <span>{{pavo.descripcion}}</span> -->
-      <input type="text" class="form-control"
+      <span>{{pavo.descripcion}}</span> 
+      <input type="hidden" class="form-control"
         [(ngModel)]="comprapavo.pedidoDetalle.pavos.idpavos"
         placeholder="Id Pavo" 
         name="idpavos"
         value="{{idpavos}}"
         required>
-     
     </div>
 
     <div class="product-price">
      
-      <input type="text" class="form-control"
+      <input type="hidden" class="form-control"
       [(ngModel)]="comprapavo.pedidoDetalle.cantidad"
       name="cantidad"
       value={{cantidad}}
       required>
     </div>
     <div class="product-price">
-       
-      <input type="text" class="form-control"
+      <span>$ {{pavo.precio}}</span>
+      <input type="hidden" class="form-control"
       [(ngModel)]="comprapavo.pedidoDetalle.precio"
       name="precio"
       value={{precio}} 
@@ -83,7 +82,7 @@
     </div>
     
 
-    <button class="btn btn-primary" type="submit" style="margin-top:2%;">Registrar Compra</button>
+    <button class="btn btn-primary" type="submit" style="margin-top:2%;">Pavo</button>
   </form>
   </div>
   </div> 
