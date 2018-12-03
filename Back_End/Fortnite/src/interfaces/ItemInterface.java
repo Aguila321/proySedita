@@ -12,6 +12,8 @@ public interface ItemInterface {
 	public TipoItem obtenerTipoItem(int id);
 	public RarezaItem obtenerRareza(int id);	
 	public List<Item> obtenerListaItem(int codigoItem);
+	public List<Item> obtenerListaxRareza(int idRareza);
+	public List<Item> obtenerListaxNombre(String nombre);
 	
 	
 }
