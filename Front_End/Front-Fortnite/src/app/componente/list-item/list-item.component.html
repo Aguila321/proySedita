@@ -1,6 +1,6 @@
 <div id="itemLista">
   <div class="card" style="width: 30%;" *ngFor="let row of items">
-    <img class="card-img-top" src="https://image.fnbr.co/outfit/5be1613f98d7933399c6edf1/icon.png" alt="Card image cap">
+    <img class="card-img-top" src="{{row.icon}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{row.nombreItem}}</h5>
       <p class="card-text">{{row.precioItem}}</p>

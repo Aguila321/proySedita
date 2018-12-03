@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ServicioUsuarioService } from '../../servicio/usuario/servicio-usuario.service';
 import { Usuario } from '../../model/usuario.interface';
 import { NgForm } from '@angular/forms';
@@ -12,8 +12,9 @@ import { PavoService } from 'src/app/servicio/pavos/pavo.service';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioComponent implements OnInit{
    public ape : string;
+   navigationSubscription;
    public pavos : Number;
    public idUsu : Number;
    usuario : Usuario = {
@@ -28,9 +29,10 @@ export class UsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
-  
+    
    
   }
+
   login(forma :NgForm){
     return this.servicio.loginUsuario(this.usuario)
         .subscribe( data=>{

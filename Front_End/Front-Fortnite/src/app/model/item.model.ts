@@ -10,4 +10,6 @@ export class item{
         idrareaza?:number;
         descripcion?:string;
     }
+    icon?:string;
+    urlDet?:string;
 }

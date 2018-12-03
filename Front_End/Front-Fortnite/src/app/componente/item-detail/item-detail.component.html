@@ -1,8 +1,8 @@
 <div class="container m-5">
 
   
-  <div class="left-column">
-    <img src="https://image.fnbr.co/outfit/5ab1633ec3a23b438035947d/png.png" alt="">
+  <div class="left-column" *ngFor="let obj of item">
+    <img src="{{obj.urlDet}}" alt="">
   </div>
 
   <div class="right-column" *ngFor="let obj of item">
@@ -10,7 +10,7 @@
   Product Description 
  
   <form class="needs-validation" (ngSubmit)="registrarCompraItem(forma)" #forma="ngForm" >
-      <input type="text" class="form-control"
+      <input type="hidden" class="form-control"
       [(ngModel)]="compra.usuario.iduser"
       name="iduser"
 
@@ -18,7 +18,7 @@
       required>
     <div class="product-description">
       <span>{{obj.tipoItem.descripcion}}</span>
-      <input type="text" class="form-control"
+      <input type="hidden" class="form-control"
         [(ngModel)]="compra.itemDetalle.item.idItem"
         placeholder="Id item" 
         name="iditem"
@@ -30,7 +30,7 @@
 
     <div class="product-price">
       <span>{{obj.precioItem}}</span>
-      <input type="text" class="form-control"
+      <input type="hidden" class="form-control"
       [(ngModel)]="compra.itemDetalle.precio"
       name="precioItem"
       value={{precio}}
@@ -41,7 +41,8 @@
       <input type="hidden" name="idItem" value="{{id}}"/>
     </div> 
 
-    <button class="btn btn-primary" type="submit" style="margin-top:2%;">Registrar Compra</button>
+    <button class="btn btn-primary" type="submit" style="margin-top:2%;" *ngIf="precio<pavos">Comprar</button>
+    <button class="btn btn-primary" type="submit" style="margin-top:2%;" *ngIf="precio>pavos">Comprar Pavos</button>
   </form>
   </div>
   </div> 

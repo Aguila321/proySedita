@@ -12,35 +12,44 @@ import { PrincipalComponent } from './app/componente/principal/principal.compone
 
 
 const routes: Routes = [
-  {path:'home', component: PrincipalComponent},
-  { path:'login', component: UsuarioComponent},
+  {path:'home', component: PrincipalComponent, 
+  runGuardsAndResolvers: 'always'},
+  { path:'login', component: UsuarioComponent, 
+  runGuardsAndResolvers: 'always'},
   {
     path: 'lista-pavo',
-    component : ListPavoComponent
+    component : ListPavoComponent, 
+    runGuardsAndResolvers: 'always'
   },
   {
     path: 'lista-item',
-    component: ListItemComponent
+    component: ListItemComponent, 
+    runGuardsAndResolvers: 'always'
+    
   },
   {
     path: 'registrar',
-    component : RegistrarUsuarioComponent
+    component : RegistrarUsuarioComponent, 
+    runGuardsAndResolvers: 'always'
   },
   {
     path: 'item-detail/:id',
-    component: ItemDetailComponent
+    component: ItemDetailComponent, 
+    runGuardsAndResolvers: 'always'
    },
    {
     path: 'pavo-detail/:id',
-    component: PavoDetailComponent
+    component: PavoDetailComponent, 
+    runGuardsAndResolvers: 'always'
    },
   {
-    path: '**', pathMatch:'full', redirectTo:'lista-item'
+    path: '**', pathMatch:'full', redirectTo:'lista-item', 
+    runGuardsAndResolvers: 'always'
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: false})],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule],
   providers: []
 })

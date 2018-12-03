@@ -41,30 +41,32 @@ export class ItemDetailComponent implements OnInit {
   constructor(private service : ItemService,private route: Router,
      private activatedRoute: ActivatedRoute, private user_service : ServicioUsuarioService
      ) { 
-      this.activatedRoute.params.subscribe(parameters =>{
-        this.id = parameters["id"];
-        
-        this.service.getItemById(this.id).subscribe(data=>{
-       
-         this.item = data;
-         this.precio=this.item[0].precioItem;
-         // this.precio = data.precioItem;
-          console.log(this.item);
-          this.compra.itemDetalle.item.idItem = this.id;
-          
-          this.compra.itemDetalle.precio = this.precio;
-          console.log(this.compra.itemDetalle.precio);
-
-          
-          //this.compra.itemDetalle.item.idItem= Number(this.item.idItem);
-          //this.compra.itemDetalle.precio = this.item.precioItem;
-     
-        });
-      });
+      
    }
 
   ngOnInit() {
    
+    this.activatedRoute.params.subscribe(parameters =>{
+      this.id = parameters["id"];
+      
+      this.service.getItemById(this.id).subscribe(data=>{
+     
+       this.item = data;
+       this.precio=this.item[0].precioItem;
+       // this.precio = data.precioItem;
+        console.log(this.item);
+        this.compra.itemDetalle.item.idItem = this.id;
+        
+        this.compra.itemDetalle.precio = this.precio;
+        console.log(this.compra.itemDetalle.precio);
+
+        
+        //this.compra.itemDetalle.item.idItem= Number(this.item.idItem);
+        //this.compra.itemDetalle.precio = this.item.precioItem;
+   
+      });
+    });
+    
     this.service.currentMessage.subscribe(message =>
       this.inputId = message);
       

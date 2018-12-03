@@ -1,7 +1,7 @@
 <div class="container m-5">
   <div class="card-columns">
     <div class="card" *ngFor="let pavo of pavos">
-      <img class="card-img-top"  alt="Card image cap">
+      <img class="card-img-top" src="{{pavo.url}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Card title that wraps to a new line</h5>
         <p class="card-text"> {{pavo.descripcion}}</p>

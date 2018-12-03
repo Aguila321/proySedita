@@ -3,5 +3,5 @@ export class Pavo {
         cantidad: number;
         descripcion: string;
         precio: number;      
-
+        url:string;
 }
