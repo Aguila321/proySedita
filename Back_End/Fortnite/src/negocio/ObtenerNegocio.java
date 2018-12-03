@@ -193,7 +193,8 @@ public class ObtenerNegocio implements ObtenerInterface{
 
 			while (rs.next()) {
 				item = new Item(rs.getInt(1), rs.getString(2), rs.getInt(3),
-						obtenerTipoItem(rs.getInt(4)), obtenerRarezaItem(rs.getInt(5)));
+						obtenerTipoItem(rs.getInt(4)), obtenerRarezaItem(rs.getInt(5))
+						, rs.getString(6), rs.getString(7));
 }
 
 		} catch (Exception e) {

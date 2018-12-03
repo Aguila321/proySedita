@@ -19,6 +19,10 @@ public class Item {
 	private TipoItem tipoItem;
 	/** Rareza del Item */
 	private RarezaItem rarezaItem;
+	/** Imagen del Detalle */
+	private String urlDet;
+	/** Imagen de Icon */
+	private String icon;
 	
 	// CONSTRUCTOR
 	
@@ -30,13 +34,15 @@ public class Item {
 	}
 	
 
-	public Item(int idItem, String nombreItem, int precioItem, TipoItem tipoItem, RarezaItem rarezaItem) {
+	public Item(int idItem, String nombreItem, int precioItem, TipoItem tipoItem, RarezaItem rarezaItem, String urlDet , String icon) {
 		super();
 		this.idItem = idItem;
 		this.nombreItem = nombreItem;
 		this.precioItem = precioItem;
 		this.tipoItem = tipoItem;
 		this.rarezaItem = rarezaItem;
+		this.urlDet = urlDet;
+		this.icon = icon;
 	}
 
 
@@ -79,6 +85,22 @@ public class Item {
 
 	public void setRarezaItem(RarezaItem rarezaItem) {
 		this.rarezaItem = rarezaItem;
+	}
+
+	public String getUrlDet() {
+		return urlDet;
+	}
+
+	public void setUrlDet(String urlDet) {
+		this.urlDet = urlDet;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 	
 	

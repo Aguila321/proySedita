@@ -26,7 +26,7 @@
 		email    VARCHAR(255) NOT NULL,
 		pavos    INT,
 		idpais   INT REFERENCES pais,
-		idtipo   INT REFERENCES tipoUSEr
+		idtipo   INT REFERENCES tipoeser
 	);
 	
 	CREATE Table pavos
@@ -68,9 +68,11 @@
     (
 		iditem INT AUTO_INCREMENT PRIMARY KEY,
 		nombreItem VARCHAR(255),
-		precio INT,
-		idtipo INT REFERENCES tipo,
-		idrarity INT REFERENCES rarity
+		precio     INT,
+		idtipo     INT REFERENCES tipo,
+		idrarity   INT REFERENCES rarity,
+        urlDetail  VARCHAR(3999),
+        urlImg     VARCHAR(3999)
     );
 	
 	CREATE Table orden_item
