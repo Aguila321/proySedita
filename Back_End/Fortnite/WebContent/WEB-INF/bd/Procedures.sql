@@ -123,4 +123,20 @@
 	  + 1 FROM orden_item;
 	END;
     
+    DELIMITER $$
+	CREATE PROCEDURE Sp_ListarPorRareza
+    (
+    p_idRarity INT
+    )
+	BEGIN
+		SELECT * FROM item WHERE idrarity = p_idRarity;
+	END;
     
+    DELIMITER $$
+	CREATE PROCEDURE Sp_ListarPorNombre
+    (
+    p_nombreItem VARCHAR(250)
+    )
+	BEGIN
+		SELECT * FROM item WHERE nombreItem LIKE CONCAT('%', p_nombreItem, '%');
+	END;
