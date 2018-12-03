@@ -39,7 +39,6 @@ public class UsuarioNegocio implements UsuarioInterface{
 	}
 	@Override
 	public int RegistrarUsuario(Usuario u) {
-		// TODO Auto-generated method stub
 		int OK = 0;
 		
 		Connection con = null;
@@ -72,7 +71,6 @@ public class UsuarioNegocio implements UsuarioInterface{
 	}
 	@Override
 	public Usuario loginUsuario(String user,String pass) {
-		// TODO Auto-generated method stub
 		ResultSet rs = null;
 		Connection con = null;
 		PreparedStatement pst = null;

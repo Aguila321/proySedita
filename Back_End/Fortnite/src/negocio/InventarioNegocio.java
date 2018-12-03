@@ -129,7 +129,7 @@ public class InventarioNegocio implements InventarioInterface {
 
 			while (rs.next()) {
 				i = new Item(rs.getInt(1), rs.getString(2), rs.getInt(3), obtenerTipoItem(rs.getInt(4)),
-						obtenerRareza(rs.getInt(5)));
+						obtenerRareza(rs.getInt(5)), rs.getString(6), rs.getString(7));
 
 			}
 
