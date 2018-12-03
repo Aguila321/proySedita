@@ -13,11 +13,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import bean.Usuario;
+import negocio.ObtenerNegocio;
 import negocio.UsuarioNegocio;
 
 @Path("/proyecto")
 public class UsuarioServicio  implements ContainerResponseFilter{
 	UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+	ObtenerNegocio obtenerNegocio = new ObtenerNegocio();
 	private static List<Usuario> listaUsuario = null;
 	Usuario usu =new Usuario();
 	
@@ -63,6 +65,17 @@ public class UsuarioServicio  implements ContainerResponseFilter{
 			
 		
 		 return usu;
+	}
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("cantidadPavos")
+	public int CantidadPavos(@QueryParam("idUsu") int id) {
+		int cantidad =0;
+			usu = obtenerNegocio.obtenerUsuario(id);
+		if(usu!=null) {
+			cantidad = usu.getPavos();
+		}
+		return cantidad;
 	}
 
 	@Override

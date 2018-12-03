@@ -4,7 +4,7 @@ import { PavoService } from 'src/app/servicio/pavos/pavo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pavo } from 'src/app/model/pavo.model';
 import { NgForm } from '@angular/forms';
-
+import { ServicioUsuarioService } from '../../servicio/usuario/servicio-usuario.service';
 @Component({
   selector: 'app-pavo-detail',
   templateUrl: './pavo-detail.component.html',
@@ -39,7 +39,7 @@ export class PavoDetailComponent implements OnInit {
 
 
   constructor(private service: PavoService, private route: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute, private servicioUsuario: ServicioUsuarioService
   ) {
 
   }
@@ -66,6 +66,7 @@ export class PavoDetailComponent implements OnInit {
      this.service.currentMessage.subscribe(message =>
        this.inputId = message);
        this.comprapavo.usuario.iduser = this.inputId;
+  
   }
 
   registrarCompraPavos(forma: NgForm) {

@@ -18,7 +18,7 @@ export class ServicioUsuarioService {
   urlRegister = this.urlGeneral + "regUsuario"
   urlLogin = this.urlGeneral + "loginUsuario";
   urlPais = this.urlGeneral + "pais";
-  
+  urlPavos = this.urlGeneral+"cantidadPavos?idUsu="
   private messageSource = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
@@ -49,5 +49,9 @@ export class ServicioUsuarioService {
 
   getAllCountries():Observable<Pais[]>{
     return this.http.get<Pais[]>(this.urlPais).pipe();
+  }
+
+  cantidadPavosPorUsuario(id :Number){
+    return this.http.get(this.urlPavos).pipe();
   }
 }
