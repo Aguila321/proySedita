@@ -14,19 +14,23 @@ import { NgForm } from '@angular/forms';
 export class PavoDetailComponent implements OnInit {
   inputId: Number = 0;
   id: number;
-  pavo: Pavo
+  pavo: Pavo;
+  idpavo:number =0;
+  cantidad:number=0;
+  precio:number = 0;
+
   comprapavo: CompraPavoPersonalizado = {
     usuario: {
-      iduser: 0,
+      iduser: this.inputId,
     },
     pedidoDetalle: {
 
       pavos: {
 
-        idpavos: 0,
+        idpavos: this.idpavo,
       },
-      cantidad: 0,
-      precio: 0
+      cantidad: this.cantidad,
+      precio: this.precio
 
     }
 
@@ -46,17 +50,29 @@ export class PavoDetailComponent implements OnInit {
 
       this.service.getPavobyId(this.id).subscribe(data => {
         this.pavo = data;
+        this.idpavo=this.pavo.idpavos;
+        this.cantidad= this.pavo.cantidad; 
+        this.precio =this.pavo.precio;
+        console.log(this.pavo);
+        console.log(this.precio);
+        console.log(this.idpavo);
+
+        this.comprapavo.pedidoDetalle.pavos.idpavos= this.idpavo;
+        this.comprapavo.pedidoDetalle.precio=this.precio;
+        this.comprapavo.pedidoDetalle.cantidad=this.cantidad;
+        
       });
     });
-    /* this.service.currentMessage.subscribe(message =>
+     this.service.currentMessage.subscribe(message =>
        this.inputId = message);
-       this.comprapavo.usuario.iduser = this.inputId;*/
+       this.comprapavo.usuario.iduser = this.inputId;
   }
 
   registrarCompraPavos(forma: NgForm) {
     return this.service.buyPav(this.comprapavo)
       .subscribe(data => {
         this.comprapavo = data;
+        alert("Compra Realizada ...")
         this.route.navigate(['/lista-pavo']);
       }, error => console.log(error));
 
