@@ -15,7 +15,7 @@ import { ServicioUsuarioService } from 'src/app/servicio/usuario/servicio-usuari
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-
+  private mellegasalpincho:string;
   inputId: Number =0;
   pavos : Number = 0;
   id : number;
