@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './componente/usuario/usuario.component';
 import { RegistrarUsuarioComponent } from './componente/usuario/registrar-usuario/registrar-usuario.component';
 // import generales
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //servicio
@@ -43,7 +43,8 @@ import { FooterComponent } from './componente/footer/footer.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ItemService,PavoService],
   bootstrap: [AppComponent]

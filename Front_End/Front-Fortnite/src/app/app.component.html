@@ -14,6 +14,7 @@
           <a class="nav-link"[routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link" [routerLink]="['/articles']">Articles</a>
         </li>
         <li class="nav-item dropdown">
@@ -44,15 +45,38 @@
           </div>
         </li>
         <li class="nav-item">
+=======
+>>>>>>> parent of f835067... Revert "Tratando Compras"
           <a class="nav-link"  [routerLink]="['/lista-pavo']">Pavo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/lista-item']">Item</a>
         </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['/add-article']">Add new article</a>
+              <a class="dropdown-item" [routerLink]="['/about']">About</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
       </ul>
-      <p style="color: wheat" *ngIf="!aea==''">El Nombre Usuario : {{aea}}</p>
-  
-          <button class="btn btn-primary-outline"  [routerLink]="['/login']">Login</button>
+         <p style="color: wheat" *ngIf="!aea==''">El Nombre Usuario : {{aea}}</p>
+      
+         <div *ngIf="aea==''">
+          <button class="log" [routerLink]="['/login']">
+            Login
+          </button>
+        </div>
+        <div *ngIf="!aea==''">
+            <button class="log" (click)="logOut()">
+              Log out
+            </button>
+        </div>
         </div>
   </nav>
  <!-- <app-header></app-header>  -->

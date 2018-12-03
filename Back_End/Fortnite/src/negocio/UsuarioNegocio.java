@@ -91,7 +91,7 @@ public class UsuarioNegocio implements UsuarioInterface{
 				u.setIduser(rs.getInt(1));
 				u.setNombre(rs.getString(2));
 				u.setApellido(rs.getString(3));
-				
+				u.setUsername(rs.getString(4));
 				u.setFecnac(rs.getString(6));
 				u.setEmail(rs.getString(7));
 				u.setPavos(rs.getInt(8));
