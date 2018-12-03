@@ -6,6 +6,7 @@ export interface Usuario{
     clave?: string,
     fecnac?: string,
     email?: string,
+    pavos?: Number,
   
     pais?: {
         idpais?: number
