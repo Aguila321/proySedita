@@ -139,8 +139,68 @@ public class ItemNegocio  implements ItemInterface{
 		return lista;
 	}
 
-
-
+	@Override
+	public List<Item> obtenerListaxRareza(int idRareza) {
+		List<Item> lista = new ArrayList<Item>();
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
 	
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "call Sp_ListarPorRareza(?);";
+			pst = con.prepareStatement(sql);
+			pst.setInt(1, idRareza);
+			rs = pst.executeQuery();
+			
+			while(rs.next()){
+				Item i = new Item(rs.getInt(1),rs.getString(2), rs.getInt(3),obtenerTipoItem(rs.getInt(4)) , obtenerRareza(rs.getInt(5))
+						, rs.getString(6), rs.getString(7));
+				
+				lista.add(i);
+				System.out.println(lista);
+			}
+			
+			System.out.println(lista);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+		return lista;
+	}
+
+	@Override
+	public List<Item> obtenerListaxNombre(String nombre) {
+		List<Item> lista = new ArrayList<Item>();
+		ResultSet rs = null;
+		Connection con = null;
+		PreparedStatement pst = null;
+	
+		try {
+			con = MySQLConexion.getConexion();
+			String sql = "call Sp_ListarPorNombre(?);";
+			pst = con.prepareStatement(sql);
+			pst.setString(1, nombre);
+			rs = pst.executeQuery();
+			
+			while(rs.next()){
+				Item i = new Item(rs.getInt(1),rs.getString(2), rs.getInt(3),obtenerTipoItem(rs.getInt(4)) , obtenerRareza(rs.getInt(5))
+						, rs.getString(6), rs.getString(7));
+				
+				lista.add(i);
+				System.out.println(lista);
+			}
+			
+			System.out.println(lista);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			MySQLConexion.closeStatement(pst);
+			MySQLConexion.closeConexion(con);
+		}
+		return lista;
+	}
 	
 }

@@ -35,4 +35,22 @@ public class ItemServicio {
 		System.out.println(listaItem);
 		return listaItem;
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("itemFilxRa")
+	public List<Item> ItemFiltroxRaJSON(@QueryParam("id")int idrareza){
+		
+		listaItem =  negocioItem.obtenerListaxRareza(idrareza);
+		return listaItem;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("itemFilxNom")
+	public List<Item> ItemFiltroxNomJSON(@QueryParam("nom")String nombre){
+		
+		listaItem =  negocioItem.obtenerListaxNombre(nombre);
+		return listaItem;
+	}
 }
